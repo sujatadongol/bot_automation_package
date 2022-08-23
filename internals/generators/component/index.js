@@ -27,28 +27,6 @@ module.exports = {
       },
     },
     {
-      type: 'list',
-      name: 'componentType',
-      message: 'What type of component do you need?',
-      choices: ['elements', 'layouts', 'views'],
-      default: 'views'
-    },
-    {
-      type: 'confirm',
-      name: 'wantStyledComponent',
-      message: 'Do you want to use Styled components ?',
-      default: true,
-    },
-    {
-      when: response => {
-        return response.wantStyledComponent
-      },
-      type: 'input',
-      name: 'baseElement',
-      message: 'Please enter your base element for styled component.',
-      default: 'div',
-    },
-    {
       type: 'confirm',
       name: 'memo',
       default: false,
@@ -69,133 +47,44 @@ module.exports = {
   ],
   actions: data => {
     // Generate index.js and index.test.js
-    const actions = [];
+    const actions = [
+      {
+        type: 'add',
+        path: '../../app/components/{{properCase name}}/index.js',
+        templateFile: './component/index.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../../app/components/{{properCase name}}/tests/index.test.js',
+        templateFile: './component/test.js.hbs',
+        abortOnFail: true,
+      },
+    ];
 
-    switch (data.componentType) {
-      case 'elements': {
-        actions.push({
-          type: 'add',
-          path: '../../app/components/elements/{{properCase name}}/index.js',
-          templateFile: './component/index.js.hbs',
-          abortOnFail: true,
-        });
-
-        // If the user wants  styled components
-        if (data.wantStyledComponent) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/elements/{{properCase name}}/style.js',
-            templateFile: './component/style.js.hbs',
-            abortOnFail: true,
-          });
-        }
-        // If the user wants i18n messages
-        if (data.wantMessages) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/elements/{{properCase name}}/messages.js',
-            templateFile: './component/messages.js.hbs',
-            abortOnFail: true,
-          });
-        }
-
-        // If the user wants Loadable.js to load the component asynchronously
-        if (data.wantLoadable) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/elements/{{properCase name}}/Loadable.js',
-            templateFile: './component/loadable.js.hbs',
-            abortOnFail: true,
-          });
-        }
-
-        break;
-      }
-      case 'layouts': {
-        actions.push({
-          type: 'add',
-          path: '../../app/components/layouts/{{properCase name}}/index.js',
-          templateFile: './component/index.js.hbs',
-          abortOnFail: true,
-        });
-
-        // If the user wants  styled components
-        if (data.wantStyledComponent) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/layouts/{{properCase name}}/style.js',
-            templateFile: './component/style.js.hbs',
-            abortOnFail: true,
-          });
-        }
-        // If the user wants i18n messages
-        if (data.wantMessages) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/layouts/{{properCase name}}/messages.js',
-            templateFile: './component/messages.js.hbs',
-            abortOnFail: true,
-          });
-        }
-
-        // If the user wants Loadable.js to load the component asynchronously
-        if (data.wantLoadable) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/layouts/{{properCase name}}/Loadable.js',
-            templateFile: './component/loadable.js.hbs',
-            abortOnFail: true,
-          });
-        }
-        break;
-      }
-      case 'views': {
-        actions.push({
-          type: 'add',
-          path: '../../app/components/views/{{properCase name}}/index.js',
-          templateFile: './component/index.js.hbs',
-          abortOnFail: true,
-        });
-
-        // If the user wants  styled components
-        if (data.wantStyledComponent) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/views/{{properCase name}}/style.js',
-            templateFile: './component/style.js.hbs',
-            abortOnFail: true,
-          });
-        }
-        // If the user wants i18n messages
-        if (data.wantMessages) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/views/{{properCase name}}/messages.js',
-            templateFile: './component/messages.js.hbs',
-            abortOnFail: true,
-          });
-        }
-
-        // If the user wants Loadable.js to load the component asynchronously
-        if (data.wantLoadable) {
-          actions.push({
-            type: 'add',
-            path: '../../app/components/views/{{properCase name}}/Loadable.js',
-            templateFile: './component/loadable.js.hbs',
-            abortOnFail: true,
-          });
-        }
-        break;
-      }
-      default:
-        break;
+    // If the user wants i18n messages
+    if (data.wantMessages) {
+      actions.push({
+        type: 'add',
+        path: '../../app/components/{{properCase name}}/messages.js',
+        templateFile: './component/messages.js.hbs',
+        abortOnFail: true,
+      });
     }
 
-
+    // If the user wants Loadable.js to load the component asynchronously
+    if (data.wantLoadable) {
+      actions.push({
+        type: 'add',
+        path: '../../app/components/{{properCase name}}/Loadable.js',
+        templateFile: './component/loadable.js.hbs',
+        abortOnFail: true,
+      });
+    }
 
     actions.push({
       type: 'prettify',
-      path: `/components/${data.componentType}`,
+      path: '/components/',
     });
 
     return actions;

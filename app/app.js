@@ -13,39 +13,55 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+import { TreeleafStorage } from '@anydone/treeleaf_js_utils';
+import App from 'containers/App';
+import config from './utils/config';
 
 // Import root app
-import App from 'containers/App';
 
 // Import Language Provider
-import LanguageProvider from 'containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
-/* eslint-disable import/no-unresolved, import/extensions */
-import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import 'file-loader?name=.htaccess!./.htaccess';
-/* eslint-enable import/no-unresolved, import/extensions */
+import '!file-loader?name=[name].[ext]!./assets/anydone_logo.svg';
+import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line import/extensions
 
 import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+// Observe loading of Open Sans (to remove open sans, remove the <link> tag in
+// the index.html file and this observer)
+const openSansObserver = new FontFaceObserver('Open Sans', {});
+
+// When Open Sans is loaded, add a font-family using Open Sans to the body
+openSansObserver.load().then(() => {
+  document.body.classList.add('fontLoaded');
+});
+
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
+const { deskUrl, inboxUrl } = config;
 
+TreeleafStorage.acceptQueriesFromRemote([
+  inboxUrl,
+  deskUrl,
+  'https://app.anydone.com',
+  'https://app.anydone.net',
+  'http://localhost:4500',
+  'http://localhost:3000',
+]);
 const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
-      <LanguageProvider messages={messages}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </LanguageProvider>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
     </Provider>,
     MOUNT_NODE,
   );
@@ -66,7 +82,12 @@ if (!window.Intl) {
   new Promise(resolve => {
     resolve(import('intl'));
   })
-    .then(() => Promise.all([import('intl/locale-data/jsonp/en.js')]))
+    .then(() =>
+      Promise.all([
+        import('intl/locale-data/jsonp/en.js'),
+        import('intl/locale-data/jsonp/de.js'),
+      ]),
+    ) // eslint-disable-line prettier/prettier
     .then(() => render(translationMessages))
     .catch(err => {
       throw err;

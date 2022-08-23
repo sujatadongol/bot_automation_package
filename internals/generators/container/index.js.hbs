@@ -23,10 +23,10 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 {{#if wantSaga}}
-import useInjectSaga from 'utils/injectSaga';
+import { useInjectSaga } from 'utils/injectSaga';
 {{/if}}
 {{#if wantActionsAndReducer}}
-import useInjectReducer from 'utils/injectReducer';
+import { useInjectReducer } from 'utils/injectReducer';
 import makeSelect{{properCase name}} from './selectors';
 import reducer from './reducer';
 {{/if}}
@@ -36,7 +36,33 @@ import saga from './saga';
 {{#if wantMessages}}
 import messages from './messages';
 {{/if}}
-import {{ properCase name }} from './{{ properCase name }}';
+
+export function {{ properCase name }}() {
+  {{#if wantActionsAndReducer}}
+  useInjectReducer({ key: '{{ camelCase name }}', reducer });
+  {{/if}}
+  {{#if wantSaga}}
+  useInjectSaga({ key: '{{ camelCase name }}', saga });
+  {{/if}}
+
+  return (
+    <div>
+    {{#if wantHeaders}}
+      <Helmet>
+        <title>{{properCase name}}</title>
+        <meta name="description" content="Description of {{properCase name}}" />
+      </Helmet>
+    {{/if}}
+    {{#if wantMessages}}
+      <FormattedMessage {...messages.header} />
+    {{/if}}
+    </div>
+  );
+}
+
+{{ properCase name }}.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
 
 {{#if wantActionsAndReducer}}
 const mapStateToProps = createStructuredSelector({
@@ -51,13 +77,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 {{#if wantActionsAndReducer}}
-  const withReducer = useInjectReducer({ key: '{{ camelCase name }}', reducer });
-{{/if}}
-{{#if wantSaga}}
-  const withSaga = useInjectSaga({ key: '{{ camelCase name }}', saga });
-{{/if}}
-
-{{#if wantActionsAndReducer}}
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 {{else}}
 const withConnect = connect(null, mapDispatchToProps);
@@ -68,6 +87,4 @@ export default compose(
 {{#if memo}}
   memo,
 {{/if}}
-withReducer,
-withSaga,
 )({{ properCase name }});

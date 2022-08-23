@@ -1,0 +1,35 @@
+.modal-layout div.ant-modal-body {
+  padding: 0 0 0 0 !important;
+}
+.modal-title {
+  display: flex;
+  font-size: 18px;
+  color: #333;
+  border-bottom: 1px solid #f0edf1;
+  box-shadow: 0px 0px 1.08302px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  font-weight: 500;
+}
+.modal-close-icon {
+  margin-left: auto;
+  cursor: pointer;
+  width: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.modal-content {
+  padding: 15px 20px;
+  color: #666;
+  border: none !important;
+  overflow: hidden !important;
+}
+.confirmation-action {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px 15px 20px;
+}
+
+.ant-modal-wrap::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,77 @@
+.reusable-messages-filter-content {
+    padding: 15px;
+    background: white !important;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.reusable-filter-title {
+    font-size: 13px;
+    line-height: 19px;
+    color: #333333;
+  }
+
+  .reusable-filter-date-wrapper {
+    min-width: 190px;
+    height: 24.6px;
+    margin: 0 20px 0 30px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .reusable-date-component-filter-date-button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .reusable-date-component-filter-date-button button:focus {
+    outline: none;
+  }
+
+  .reusable-filter-date-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    color: #376af5;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 10px;
+    width: 100px;
+  }
+
+  .reusable-filter-action {
+    display: flex;
+    border-top: 1px solid #d2d2d2;
+    padding-top: 12px;
+  }
+
+  .reusable-clear-all {
+    background: none;
+    border: none;
+    font-size: 13px;
+    line-height: 18px;
+    color: #de4132;
+    cursor: pointer;
+  }
+
+  .reusable-cancel-filter {
+    background: none;
+    border: none;
+    font-size: 13px;
+    line-height: 18px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .reusable-apply {
+    background: none;
+    border: none;
+    font-size: 13px;
+    line-height: 18px;
+    color: #376af5;
+    cursor: pointer;
+  }

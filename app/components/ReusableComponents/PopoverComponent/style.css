@@ -1,0 +1,6 @@
+.popover-title {
+  display: flex;
+  align-items: center;
+  color: #666;
+  cursor: pointer;
+}

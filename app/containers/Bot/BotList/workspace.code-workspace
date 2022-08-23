@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\..\\anydone_biz_webapp_react"
+		},
+		{
+			"path": "..\\..\\..\\.."
+		}
+	],
+	"settings": {
+		"files.autoSave": "afterDelay"
+	}
+}

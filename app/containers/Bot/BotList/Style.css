@@ -1,0 +1,224 @@
+.retrain-button {
+  cursor: pointer;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 6px;
+  background: #376af5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.version-dropdown-wrapper {
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+  border-radius: 5px;
+  margin-top: -16px;
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.version-dropdown-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.version-dropdown-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+.version-dropdown-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(170, 171, 174, 0.77);
+  border-radius: 10px;
+  max-height: 20px !important;
+}
+
+/* Handle on hover */
+.version-dropdown-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.version-dropdown-option {
+  cursor: pointer;
+  padding: 3px 6px;
+  color: #666666;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.version-dropdown-option:hover {
+  background: #f1f1f1;
+}
+
+/*try out section*/
+.try-out {
+  padding-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.06);
+  margin-top: -44px;
+  position: fixed;
+  right: 0;
+  height: calc(100vh - 56px);
+}
+
+.try-out-text {
+  -ms-transform: rotate(270deg); /* IE 9 */
+  transform: rotate(270deg);
+  height: 80px;
+  width: 92px;
+}
+
+/*try out section*/
+
+/*create bot section*/
+.create-bot-wrapper {
+  margin-top: 20px;
+  height: 465px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.create-bot-wrapper::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+.create-bot-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+.create-bot-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(170, 171, 174, 0.77);
+  border-radius: 10px;
+  max-height: 20px !important;
+}
+
+/* Handle on hover */
+.create-bot-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.create-bot-label {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #333333;
+  height: 100%;
+  width: 100%;
+}
+
+.create-bot-select {
+  width: 100%;
+  /*opacity: 0.87;*/
+}
+
+.create-bot-input {
+  border: 1px solid #d2d2d2;
+  border-radius: 2px;
+  width: 100%;
+
+  opacity: 0.87;
+}
+
+.create-bot-input:focus {
+  outline: none;
+}
+
+.browse-image {
+  font-family: Roboto !important;
+  border: 1px solid #d2d2d2;
+  text-decoration-line: underline;
+  border-radius: 5px;
+  position: absolute;
+  color: #376af5;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0.87;
+}
+
+.upload-image {
+  position: absolute;
+  background: black;
+  color: white;
+  opacity: 0.3;
+  width: 140px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.threshold-error {
+  color: #ff4a4a;
+  text-align: left;
+  position: absolute;
+  font-size: 11px;
+  padding: 0;
+  margin: 0;
+}
+
+.row-style {
+  margin-bottom: 10px;
+}
+
+/*.bot-select div.ant-select-selector {*/
+
+/*}*/
+/*create bot section*/
+
+/* .ant-select, .ant-select-selector{
+  width: 150px;
+} */
+
+.language-dropdown-wrapper {
+  width: 130px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+  border-radius: 5px;
+  margin-top: -14px;
+  z-index: 10;
+  text-align: center;
+}
+
+.language-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 0;
+  width: 75px;
+}
+
+.delete-button {
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+}

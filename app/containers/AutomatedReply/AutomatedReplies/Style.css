@@ -1,0 +1,148 @@
+.fixed-reply-wrapper {
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 10px 0;
+}
+
+.fixed-reply-wrapper::-webkit-scrollbar {
+  width: 10px;
+  margin-top: 30px;
+}
+
+/* Track */
+.fixed-reply-wrapper::-webkit-scrollbar-track {
+  background: inherit;
+  border-radius: 10px;
+}
+
+/* Handle */
+.fixed-reply-wrapper::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 10px;
+  max-height: 20px !important;
+}
+
+/* Handle on hover */
+.fixed-reply-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.automated-replies-actions {
+  margin-bottom: -4px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+  border-radius: 5px;
+}
+.automated-replies-option {
+  cursor: pointer;
+  padding: 6px 14px;
+  color: #666666;
+}
+.automated-replies-option:hover {
+  background: #f1f1f1;
+}
+
+.automated-replies-header {
+  font-size: 16px;
+  color: #333;
+  padding: 10px 18px;
+  border-bottom: 1px solid #f0edf1;
+  font-weight: 500;
+}
+.automated-replies-input-wrapper {
+  padding: 10px 18px;
+  border-bottom: 1px solid #f0edf1;
+  display: flex;
+}
+.automated-replies-input {
+  border: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  padding: 6px 10px 6px 0 !important;
+  height: 30px;
+}
+input:focus {
+  outline: none !important;
+}
+input::placeholder {
+  color: #979797;
+}
+.add-button {
+  background: none;
+  border: none;
+  padding: 10px 18px;
+  color: #376af5;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 14.5rem;
+}
+button.add-button:focus {
+  outline: none;
+}
+
+/*problem solution modal*/
+.problem-solution-wrapper {
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.problem-solution-wrapper::-webkit-scrollbar {
+  width: 10px;
+  margin-top: 30px;
+}
+
+/* Track */
+.problem-solution-wrapper::-webkit-scrollbar-track {
+  background: inherit;
+  border-radius: 10px;
+}
+
+/* Handle */
+.problem-solution-wrapper::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 10px;
+  max-height: 20px !important;
+}
+
+/* Handle on hover */
+.problem-solution-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.problem-solution-input {
+  border: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  padding: 10px !important;
+  height: 38px;
+}
+
+.solution-data-wrapper {
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.step-feedback-title {
+  background: #f1f1f1;
+  padding: 8px 10px;
+}
+.step-input {
+  border: none;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  padding: 10px !important;
+  height: 38px;
+}
+.step-btn {
+  cursor: pointer;
+  font-size: 14px;
+  color: #376af5;
+  padding: 8px 10px;
+}

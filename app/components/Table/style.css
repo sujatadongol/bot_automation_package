@@ -1,0 +1,131 @@
+th.ant-table-cell {
+  background: white !important;
+}
+tbody.ant-table-tbody {
+  background: white !important;
+}
+/*for column whole sort feature is active*/
+td.ant-table-cell.ant-table-column-sort {
+  background-color: white;
+}
+span.ant-table-column-sorter.ant-table-column-sorter-full {
+  padding-bottom: 1px !important;
+}
+div.ant-table-column-sorters {
+  color: #919191;
+}
+th.ant-table-cell {
+  color: #919191 !important;
+  padding: 12px 12px !important;
+}
+tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+td.ant-table-cell {
+  padding: 14px 14px !important;
+}
+.ant-table-container table > thead > tr:first-child th:last-child {
+  text-align: center !important;
+}
+.ant-table-container table > thead > tr:first-child th:first-child {
+  text-align: center !important;
+}
+span.anticon.anticon-right {
+  position: absolute;
+  margin: -6px -7px;
+}
+span.anticon.anticon-left {
+  position: absolute;
+  margin: -6px -7px;
+}
+
+tr.ant-table-row.ant-table-row-level-0 {
+  cursor: pointer;
+}
+
+.ant-table {
+  overflow: auto;
+  min-height: calc(100vh - 320px);
+}
+
+.ant-table-pagination.ant-pagination {
+  margin: 5px !important;
+  padding-left: 10px !important;
+}
+
+.ant-table::-webkit-scrollbar {
+  width: 5px !important;
+  height: 10px !important;
+}
+
+/* Track */
+.ant-table::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+  height: 5px !important;
+}
+
+/* Handle */
+.ant-table::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(170, 171, 174, 0.77);
+  border-radius: 10px;
+  height: 5px !important;
+}
+
+div.ant-table-body{
+  min-height: calc(100vh - 305px);
+}
+/* Handle on hover */
+.ant-table::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.ant-table-body::-webkit-scrollbar {
+  overflow: auto;
+}
+.ant-table-body::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+/* Track */
+.ant-table-body::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* Handle */
+.ant-table-body::-webkit-scrollbar-thumb:vertical {
+  background: rgba(170, 171, 174, 0.77);
+  border-radius: 10px;
+}
+.ant-table-body::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(170, 171, 174, 0.77);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.ant-table-expanded-row-fixed {
+  background: #fff !important;
+}
+.ant-table-tbody > tr > td {
+  background: #fff !important;
+}
+/*remove shadow while scrolling*/
+.ant-table-ping-right:not(.ant-table-has-fix-right) .ant-table-container::after,
+.ant-table-ping-left:not(.ant-table-has-fix-left) .ant-table-container::before {
+  box-shadow: none !important;
+}
+.ant-pagination-item {
+  display: none !important;
+}
+.ant-pagination-jump-next.ant-pagination-jump-next-custom-icon {
+  display: none !important;
+}
+.ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon {
+  display: none !important;
+}

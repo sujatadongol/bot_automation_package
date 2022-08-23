@@ -1,0 +1,108 @@
+div.mentions.mentions--multiLine {
+  width: 100%;
+}
+textarea.mentions__input {
+  min-height: 30px !important;
+  max-height: 100px !important;
+  overflow-y: auto !important;
+  top: 3px !important;
+  margin-left: 6px !important;
+}
+textarea.mentions__input::-webkit-scrollbar {
+  display: none;
+}
+.mentions__mention {
+  background-color: #fff1c7;
+}
+
+.mentions--singleLine .mentions__control {
+  display: inline-block;
+}
+
+.mentions--singleLine .mentions__higlighter {
+  border: 2px inset transparent;
+}
+
+.mentions--singleLine .mentions__input {
+  padding: 5px;
+  border: 2px inset;
+}
+
+.mentions--multiLine .mentions__control {
+  font-size: 14px;
+  color: #333;
+  border: none;
+}
+
+.mentions--multiLine .mentions__highlighter {
+  padding-top: 2px;
+  margin-left: 6px !important;
+  overflow: auto !important;
+  max-height: 100px;
+}
+.mentions--multiLine .mentions__highlighter::-webkit-scrollbar {
+  display: none;
+}
+
+.mentions--multiLine .mentions__input {
+  padding: 0;
+  height: 30px;
+  outline: 0;
+  border: 0;
+}
+
+.mentions__suggestions__list {
+  background-color: white;
+  border: 0.711111px solid #d2d2d2;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #333;
+  min-width: 170px;
+  text-align: left;
+}
+
+.mentions__suggestions__item {
+  padding: 6px 15px;
+}
+/*.mentions__suggestions__item:last-child {*/
+/*  border-top: 1px solid #d2d2d2;*/
+/*  color: #376AF5;*/
+/*  padding: 7px 15px;*/
+/*  margin-bottom: 2px;*/
+/*}*/
+/*.mentions__suggestions__item--focused:last-child {*/
+/*  background-color: #fff;*/
+/*}*/
+.mentions__suggestions__item--focused {
+  background-color: #f9f9f9;
+  margin-left: 1px;
+}
+
+.mentions__suggestions__list {
+  max-height: 138px;
+  overflow: auto;
+}
+/*<-- style dropdown section start-->*/
+.mentions__suggestions__list::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+/* Track */
+.mentions__suggestions__list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+.mentions__suggestions__list ::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+  max-height: 20px !important;
+}
+
+/* Handle on hover */
+.mentions__suggestions__list::-webkit-scrollbar-thumb:hover {
+  background: #c4c4c4;
+}
+/*<-- style dropdown section end-->*/

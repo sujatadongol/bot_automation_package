@@ -75,12 +75,6 @@ module.exports = {
         templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
-      {
-        type: 'add',
-        path: `../../app/containers/{{properCase name}}/${data.name}.jsx`,
-        templateFile: './container/screen.jsx.hbs',
-        abortOnFail: true,
-      }
     ];
 
     // If component wants messages

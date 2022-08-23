@@ -1,10 +1,11 @@
 // Important modules this config uses
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const OfflinePlugin = require('offline-plugin');
-const Dotenv = require('dotenv-webpack');
 const { HashedModuleIdsPlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = require('./webpack.base.babel')({
@@ -90,11 +91,8 @@ module.exports = require('./webpack.base.babel')({
       relativePaths: false,
       publicPath: '/',
       appShell: '/',
-      ServiceWorker: {
-        events: true,
-        navigateFallbackURL: '/',
-      },
       responseStrategy: 'network-first',
+
       // No need to cache .htaccess. See http://mxs.is/googmp,
       // this is applied before any match in `caches` section
       excludes: ['.htaccess'],
@@ -139,16 +137,14 @@ module.exports = require('./webpack.base.babel')({
     //     },
     //   ],
     // }),
-
+    new Dotenv({
+      path: './.env.prod',
+      safe: true,
+    }),
     new HashedModuleIdsPlugin({
       hashFunction: 'sha256',
       hashDigest: 'hex',
       hashDigestLength: 20,
-    }),
-
-    new Dotenv({
-      path: './.env.prod',
-      safe: true,
     }),
   ],
 

@@ -4,9 +4,9 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = require('./webpack.base.babel')({
   mode: 'development',
@@ -29,7 +29,6 @@ module.exports = require('./webpack.base.babel')({
       chunks: 'all',
     },
   },
-
   // Add development plugins
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
@@ -41,9 +40,8 @@ module.exports = require('./webpack.base.babel')({
       exclude: /a\.js|node_modules/, // exclude node_modules
       failOnError: false, // show a warning when there is a circular dependency
     }),
-
     new Dotenv({
-      path: './.env.test',
+      path: './.env.dev',
       safe: true,
     }),
   ],
