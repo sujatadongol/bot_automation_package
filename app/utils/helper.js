@@ -19,6 +19,22 @@ function createUUID() {
     return v.toString(16);
   });
 }
+/* To identify if string is text or link */
+export const ValidURL = str => {
+  // var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+  const regex = /((\w+:\/\/\S+)|(\w+[\.:]\w+\S+))[^\s,\.]/gi;
+  if (!regex.test(str)) {
+    return false;
+  }
+  return true;
+};
+export const checkIfStrIsValidURL = str => {
+  const regex = /(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,63}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?/;
+  if (!regex.test(str)) {
+    return false;
+  }
+  return true;
+};
 
 export const CreateUUID = createUUID;
 // example: 2020/01/01
@@ -34,7 +50,14 @@ export const GetFullDate = dateToConvert => {
 
   return `${year}/${month}/${day}`;
 };
-
+/* For converting enum */
+const convertEnum = text =>
+  text
+    .replace(/\w+/g, function(w) {
+      return w[0].toUpperCase() + w.slice(1).toLowerCase();
+    })
+    .replace(/_/g, ' ');
+export const ConvertEnum = convertEnum;
 function dateTimeFormat(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000);
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

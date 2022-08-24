@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { CircularProgress } from '@material-ui/core';
 import { Row, Tooltip } from 'antd';
 import IntentImportStyle from './Style';
-import SnackBar from '../../../components/Snackbar';
+import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { BreadCrumbValueFunc } from '../../Navbar/helper';
-import CustomButton from '../../../components/Button/Button';
+import CustomButton from '../../../components/ReusableComponents/Button/Button';
 import intentSrc from '../../../assets/intent.svg';
 import remove from '../../../assets/intentRemove.svg';
 import ConfirmationModal from '../../../components/ReusableComponents/ModalComponents/ConfirmationModal';
 import history from '../../../utils/history';
 import IntentNameHelper from '../../../components/IntentNameHelper';
 import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
+import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const IntentImportPage = ({
   match,
@@ -45,12 +45,12 @@ const IntentImportPage = ({
   useEffect(() => {
     fetchIntent(botId, localStorage.getItem('intentImportSource'), importType);
   }, []);
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      history.push('/bot');
-      reloadContainerFunc(false);
-    }
+
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    history.push('/bot');
+    reloadContainerFunc(false);
   }
+
   return (
     <IntentImportStyle>
       <BreadCrumbsDiv>
@@ -66,7 +66,7 @@ const IntentImportPage = ({
 
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       ) : (
         <>

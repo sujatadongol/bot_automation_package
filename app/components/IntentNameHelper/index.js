@@ -7,7 +7,12 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const IntentNameHelper = ({ intentName, handleIntentNameChange, intentId, index }) => {
+const IntentNameHelper = ({
+  intentName,
+  handleIntentNameChange,
+  intentId,
+  index,
+}) => {
   const handleChange = e =>
     handleIntentNameChange(intentId, '', 'INTENT_NAME', e.target.value);
   return (

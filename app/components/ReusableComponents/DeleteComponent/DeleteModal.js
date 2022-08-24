@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { Modal } from 'antd';
 import PropTypes from 'prop-types';
-import { useStyles } from './Style';
 import CustomCancelButton from '../Button/CancelButton';
 import CustomButton from '../Button/Button';
+import { Container, Text, Title, CancelButton } from './Style';
 
 const DeleteModal = ({
   title,
@@ -15,7 +15,6 @@ const DeleteModal = ({
   onClick,
   width,
 }) => {
-  const classes = useStyles();
   const onClickFunc = () => {
     closeModal();
     onClick();
@@ -23,7 +22,6 @@ const DeleteModal = ({
   return (
     <Modal
       icon
-      //   className={classes.content}
       title={title}
       centered
       visible={visibility}
@@ -33,10 +31,10 @@ const DeleteModal = ({
       width={width || 325}
       maskClosable={false}
     >
-      <div className={classes.container}>
-        <span className={classes.text}> {content} </span>
+      <Container>
+        <Text> {content} </Text>
         {actionLabel ? (
-          <div className={classes.cancelBtn}>
+          <CancelButton>
             <CustomCancelButton
               primary
               clicked={closeModal}
@@ -56,9 +54,9 @@ const DeleteModal = ({
             >
               {actionLabel}
             </CustomButton>
-          </div>
+          </CancelButton>
         ) : null}
-      </div>
+      </Container>
     </Modal>
   );
 };

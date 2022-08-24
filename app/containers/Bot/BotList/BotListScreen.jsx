@@ -1,24 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CircularProgress } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { format } from 'timeago.js';
 import { Popover, Switch, Tooltip } from 'antd';
-import SnackBar from '../../../components/Snackbar';
+import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
-// import SessionDb from '../../../localStorage';
-import LocalDb from '../../../localStorage';
-import TableComponent from '../../../components/Table';
+import TableComponent from '../../../components/ReusableComponents/Table';
 import history from '../../../utils/history';
 import { DateTimeFormatting } from '../../../utils/helper';
-import DivWrapper from '../../../components/DivWrapper/DivWrapper';
+import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
 import './Style.css';
-import addIcon from '../../../assets/whiteAddIcon.svg';
 import CreateBotModal from '../../../components/Bot/CreateBotModal';
 import ConfirmationModal from '../../../components/ReusableComponents/ModalComponents/ConfirmationModal';
 import { getActiveVersionCreatedAt } from './helper';
 import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
-import CommonIcons from '../../../assets/images/common/CommonIcon';
+import { CommonIcons } from '../../../assets/CommonIcons';
+import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const BotListScreen = ({
   match,
@@ -70,7 +66,6 @@ const BotListScreen = ({
   const [openLanguagePopover, setOpenLanguagePopover] = useState(false);
   const [changeBotStatusModal, setChangeBotStatusModal] = useState(false);
   const [botObj, setBotObj] = useState({ botId: '', status: false });
-
   useEffect(() => {
     if (!localStorage.getItem('serviceId')) {
       toggleEmptyServiceModal(true);
@@ -189,13 +184,9 @@ const BotListScreen = ({
             }}
             style={{ position: 'relative' }}
           >
-            <div>
-              {bot.activeBotVersion}{' '}
-              <ExpandMoreIcon
-                width={10}
-                height={10}
-                hidden={!botPermissionModel.createBot}
-              />
+            <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
+              {bot.activeBotVersion}
+              <CommonIcons.ExpandMore hidden={!botPermissionModel.createBot} />
             </div>
             <div
               id="version-dropdown-wrapper-id"
@@ -296,9 +287,7 @@ const BotListScreen = ({
               className="language-wrapper"
             >
               {bot.selectedLanguage === 'en' ? 'English' : 'Nepali'}{' '}
-              {botPermissionModel.createBot && (
-                <ExpandMoreIcon width={10} height={10} />
-              )}
+              {botPermissionModel.createBot && <CommonIcons.ExpandMore />}
             </div>
           </Popover>
         </div>
@@ -433,7 +422,7 @@ const BotListScreen = ({
 
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       )}
 
@@ -475,7 +464,8 @@ const BotListScreen = ({
                   toggleCreateBotModal(true);
                 }}
               >
-                <img alt="Add" src={addIcon} width={16} height={16} />
+                <CommonIcons.WhiteAddIcon />
+                {/* <img alt="Add" src={addIcon} width={16} height={16} /> */}
               </a>
             </Tooltip>
           )}

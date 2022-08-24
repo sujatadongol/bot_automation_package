@@ -3,13 +3,13 @@ import { Modal, Select, Tooltip } from 'antd';
 import LogoutModal from 'components/LogoutModal';
 import newSvg from '../../../../assets/new.svg';
 import importSvg from '../../../../assets/import.svg';
-import TableComponent from '../../../Table';
+import TableComponent from '../../../ReusableComponents/Table';
 import delete_icon from '../../../../assets/delete.svg';
 import history from '../../../../utils/history';
 import BotConfigurationTabStyle from '../../../../containers/Bot/BotConfigurationTab/Style';
 import { UnescapeHtml } from '../../../../utils/helper';
-import addIcon from '../../../../assets/whiteAddIcon.svg';
 import ImportIntentModalContent from './ImportIntentModalContent';
+import { CommonIcons } from '../../../../assets/CommonIcons';
 
 const IntentList = ({
   botSettingData,
@@ -268,7 +268,7 @@ const IntentList = ({
               setShowBotImport(visible => !visible);
             }}
           >
-            <img src={addIcon} width={16} height={16} alt="add-icon" />
+            <CommonIcons.WhiteAddIcon />
           </a>
         </Tooltip>
       ) : null}

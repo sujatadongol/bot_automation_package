@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import { CircularProgress } from '@material-ui/core';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import TryOut from 'containers/TryOut/Loadable';
 import { Row } from 'antd';
-import DivWrapper from '../../components/DivWrapper/DivWrapper';
+import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
 import CreateIntentStyle from './Style';
 import TrainingPhase from '../../components/CreateIntent/TrainingPhase';
 import IntentParameters from '../../components/CreateIntent/IntentParameters';
-import CustomButton from '../../components/Button/Button';
-import SnackBar from '../../components/Snackbar';
+import CustomButton from '../../components/ReusableComponents/Button/Button';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
 import BotResponses from '../../components/CreateIntent/BotResponse';
 import { ValidateIntent } from './helper';
 import Fulfilment from '../../components/CreateIntent/FulfilmentList';
@@ -16,6 +14,8 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import { BreadCrumbValueFunc } from '../Navbar/helper';
 import Action from '../../components/CreateIntent/Action/ActionField';
 import history from '../../utils/history';
+import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
+import { CommonIcons } from '../../assets/CommonIcons';
 
 const CreateIntentScreen = ({
   match,
@@ -119,10 +119,8 @@ const CreateIntentScreen = ({
     [],
   );
 
-  {
-    if (reloadContainer && serviceId) {
-      history.push('/bot');
-    }
+  if (reloadContainer && serviceId) {
+    history.push('/bot');
   }
 
   const disableValue = intentName === '';
@@ -140,7 +138,7 @@ const CreateIntentScreen = ({
       </Row>
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       ) : null}
       <div
@@ -313,7 +311,7 @@ const CreateIntentScreen = ({
               openTryOutModal();
             }}
           >
-            <ArrowBackIosIcon style={{ marginLeft: '7px', height: 18 }} />
+            <CommonIcons.ArrowLeft />
             <div className="try-out-text"> TRY OUT</div>
           </div>
         </div>

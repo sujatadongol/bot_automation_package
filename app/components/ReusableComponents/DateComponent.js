@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import moment from 'moment';
 import { DatePicker } from 'antd';
 import PropTypes from 'prop-types';
@@ -16,7 +16,7 @@ function DateComponent({
   filterList,
   clearFilteredList,
   disabled,
-  ref
+  ref,
 }) {
   return (
     <RangePicker

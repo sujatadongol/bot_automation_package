@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Checkbox, Modal, Select, Row, Col, Input } from 'antd';
 import '../../containers/Bot/BotList/Style.css';
 import { timeZone } from './BotConfigurationComponent/GeneralComponent/timezone';
-import CustomButton from '../Button/Button';
+import CustomButton from '../ReusableComponents/Button/Button';
 import Loader from '../Loader';
 import { HeaderWrapper, Title, CloseButton } from './Style';
 import CommonIcon from '../../assets/images/common/CommonIcon';

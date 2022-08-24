@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateEntityModal from '../../components/Bot/BotConfigurationComponent/EntityComponent/CreateEntity/CreateEntityModal';
-import SnackBar from '../../components/Snackbar';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
 
 function CreateEntityScreen({
   error,

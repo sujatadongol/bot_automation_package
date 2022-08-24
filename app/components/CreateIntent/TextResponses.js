@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Popover } from '@material-ui/core';
 import { Mention, MentionsInput } from 'react-mentions';
 import remove from '../../assets/intentRemove.svg';
 import './MentionStyle.css';
@@ -8,7 +9,6 @@ import {
   GiveSelectionStart,
 } from '../../containers/CreateIntentPage/helperFile';
 import CreateIntentStyle from '../../containers/CreateIntentPage/Style';
-import { Popover } from '@material-ui/core';
 import {
   FindIndexOfWord,
   ReplaceWorldOfParticularIndex,
@@ -272,6 +272,7 @@ const TextResponses = ({
                   hidden={responses.response.length === 1}
                   id={single.id}
                   src={remove}
+                  alt="remove"
                 />
               </div>
             </div>
@@ -292,6 +293,7 @@ const TextResponses = ({
               }}
               onClose={handleRequestClose}
               onBackdropClick={handleRequestClose}
+              style={{ border: '1px solid red' }}
             >
               <CreateIntentStyle>
                 <div
@@ -310,7 +312,6 @@ const TextResponses = ({
                           } else if (single.id === 'RESOLVE_BY_API_CALL') {
                             setShowResponseEntity(false);
                             setShowFulfilmentList(true);
-                          } else {
                           }
                         }}
                       >

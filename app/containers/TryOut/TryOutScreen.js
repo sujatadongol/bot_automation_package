@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { CircularProgress } from '@material-ui/core';
 import TryOutStyle from './Style';
-import SnackBar from '../../components/Snackbar';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
 import TryOutModal from './TryOutModal';
 import { UnescapeHtml } from '../../utils/helper';
+import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
+import { CommonIcons } from '../../assets/CommonIcons';
 
 const TryOutScreen = ({
   loading,
@@ -78,23 +78,13 @@ const TryOutScreen = ({
     <>
       <TryOutStyle>
         <div hidden={!openTryOutModal} className="try-out-content">
-          {loading === true ? (
-            <CircularProgress
-              style={{
-                color: '#376AF5',
-                position: 'absolute',
-                top: '30%',
-                left: '50%',
-              }}
-              size={36}
-            />
-          ) : null}
+          {loading === true ? <OutlinedSpinner /> : null}
           <div className="try-out-modal">
             <div className="try-out-title ml-auto mr-auto">
-              <ArrowForwardIosIcon
-                style={{ height: 17, cursor: 'pointer', textAlign: 'left' }}
-                onClick={closeTryOutModal}
-              />
+              <div onClick={closeTryOutModal}>
+                <CommonIcons.ArrowRight />
+              </div>
+
               <div className="ml-auto mr-auto"> TRY OUT</div>
             </div>
             <input

@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Table } from 'antd';
 import PropTypes from 'prop-types';
 import './style.css';
-import { PageSize } from '../../globalConstants';
+import { PageSize } from '../../../globalConstants';
 
 const TableComponent = ({
   columns,

@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row, Tabs } from 'antd';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { CircularProgress } from '@material-ui/core';
 import TryOut from '../../TryOut';
 import BotConfigurationTabStyle from './Style';
 import EntityList from '../../../components/Bot/BotConfigurationComponent/EntityComponent/EntityList';
 import IntentList from '../../../components/Bot/BotConfigurationComponent/IntentComponent/Intent';
-import SnackBar from '../../../components/Snackbar';
+import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import General from '../../../components/Bot/BotConfigurationComponent/GeneralComponent/general';
-import DivWrapper from '../../../components/DivWrapper/DivWrapper';
+import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
 import { DateTimeFormatting } from '../../../utils/helper';
-import CustomButton from '../../../components/Button/Button';
-// import LocalDb from '../../../localStorage';
+import CustomButton from '../../../components/ReusableComponents/Button/Button';
 import LocalDb from '../../../localStorage';
-// import SessionDb from '../../../localStorage';
 import history from '../../../utils/history';
 import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
+import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
+import { CommonIcons } from '../../../assets/CommonIcons';
 
 const { TabPane } = Tabs;
 
@@ -126,7 +124,6 @@ const BotConfigurationTab = ({
   autoTicketCreateData,
   ticketModal,
 }) => {
-  console.log(ticketModal, 'ticket modal');
   const [openNoServiceSnackbar, setOpenNoServiceSnackbar] = useState(false);
   const { tab: tabValue, id: botId, language: defaultLanguage } = match.params;
 
@@ -210,7 +207,7 @@ const BotConfigurationTab = ({
     <BotConfigurationTabStyle>
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       )}
       <div
@@ -292,14 +289,7 @@ const BotConfigurationTab = ({
             >
               {isBotTraining === true ||
                 (retrainingBotId.includes(botId) && (
-                  <CircularProgress
-                    style={{
-                      color: '#fff',
-                      width: 14,
-                      height: 14,
-                      margin: '0 10px 0 0',
-                    }}
-                  />
+                  <OutlinedSpinner spinnerStyle={{ margin: '0 10px 0 0' }} />
                 ))}
               {isBotTraining === true || retrainingBotId.includes(botId)
                 ? 'Training...'
@@ -475,7 +465,7 @@ const BotConfigurationTab = ({
               openTryOutModal();
             }}
           >
-            <ArrowBackIosIcon style={{ marginLeft: '7px', height: 18 }} />
+            <CommonIcons.ArrowLeft />
             <div className="try-out-text"> TRY OUT</div>
           </div>
         </div>

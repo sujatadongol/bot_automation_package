@@ -1,6 +1,6 @@
 import React from 'react';
 import { Imagewrapper, Text } from './style';
-import { InboxIcon } from '../ReusableComponents/InboxIcon/InboxIcon';
+import { InboxIcon } from '../InboxIcon/InboxIcon';
 
 const ImageComponent = ({ account }) => {
   return (

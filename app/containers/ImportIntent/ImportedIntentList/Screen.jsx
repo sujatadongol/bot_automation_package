@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import { Row } from 'antd';
-import { CircularProgress } from '@material-ui/core';
-import SnackBar from '../../../components/Snackbar';
-import DivWrapper from '../../../components/DivWrapper/DivWrapper';
+import SnackBar from '../../../components/ReusableComponents/Snackbar';
+import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
-import { PageSize } from '../../../globalConstants';
 import history from '../../../utils/history';
-import TableComponent from '../../../components/Table';
+import TableComponent from '../../../components/ReusableComponents/Table';
 import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
+import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const ImportList = ({
   match,
@@ -31,11 +29,9 @@ const ImportList = ({
     }
   }, []);
 
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      history.push('/bot');
-      reloadContainerFunc(false);
-    }
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    history.push('/bot');
+    reloadContainerFunc(false);
   }
 
   const columns = [
@@ -126,7 +122,7 @@ const ImportList = ({
       </BreadCrumbsDiv>
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       )}
       <DivWrapper
@@ -142,7 +138,7 @@ const ImportList = ({
           onRowClick={record => ({
             onClick: () => {
               localStorage.setItem('intentImportSource', record.importedSource);
-              history.push('/bot/intent/import/' + botId + '/' + language);
+              history.push(`/bot/intent/import/${botId}/${language}`);
             },
           })}
         />

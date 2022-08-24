@@ -17,6 +17,8 @@ const TryOutStyle = styled.span`
     display: flex;
     align-items: center;
     border-bottom: 1px solid #f0edf1;
+    cursor: pointer;
+    gap: 10px;
   }
   .try-out-input {
     border: none;
@@ -54,14 +56,14 @@ const TryOutStyle = styled.span`
   .try-out-data ::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
-      height: 10px;
+    height: 10px;
   }
 
   /* Handle */
   .try-out-data ::-webkit-scrollbar-thumb {
     background: #aaabae;
     border-radius: 10px;
-    max-height:10px !important;
+    max-height: 10px !important;
   }
 
   /* Handle on hover */

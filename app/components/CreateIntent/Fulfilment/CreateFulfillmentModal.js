@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Modal, Row, Select } from 'antd';
-import CustomButton from '../../Button/Button';
+import CustomButton from '../../ReusableComponents/Button/Button';
 import FulfilmentStyle from './style';
 import closeIcon from '../../../assets/close.svg';
 import ApiParameterDetail from '../ApiParameterDetail';
@@ -34,7 +34,7 @@ const CreateFullfilmentModal = ({
     (singleFulfilment && singleFulfilment.value.selectedApi.apiName === '') ||
     isResponseEmpty;
 
-  console.log(singleFulfilment,"single ful filment")
+  console.log(singleFulfilment, 'single ful filment');
   return (
     <Modal
       icon

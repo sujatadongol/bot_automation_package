@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
-import { CircularProgress } from '@material-ui/core';
+import OutlinedSpinner from '../Spinner';
 
 const PaginationLoader = ({ loader, width, height }) => {
   return (
@@ -14,7 +14,7 @@ const PaginationLoader = ({ loader, width, height }) => {
         alignItems: 'center',
       }}
     >
-      <CircularProgress
+      <OutlinedSpinner
         style={{ color: '#376AF5', width: width, height: height }}
       />
     </div>

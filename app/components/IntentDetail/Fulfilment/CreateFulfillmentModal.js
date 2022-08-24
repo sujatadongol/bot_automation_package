@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Modal, Row, Select } from 'antd';
-import CustomButton from '../../Button/Button';
+import CustomButton from '../../ReusableComponents/Button/Button';
 import FulfilmentStyle from './style';
 import closeIcon from '../../../assets/close.svg';
 import ApiParameterDetail from '../ApiParameterDetail';

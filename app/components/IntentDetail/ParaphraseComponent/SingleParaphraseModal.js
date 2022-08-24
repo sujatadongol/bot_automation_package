@@ -1,12 +1,12 @@
 import React from 'react';
 import { Col, Modal, Row } from 'antd';
-import { CircularProgress } from '@material-ui/core';
-import CustomButton from '../../Button/Button';
+import CustomButton from '../../ReusableComponents/Button/Button';
 import close from '../../../assets/close.svg';
 import remove from '../../../assets/intentRemove.svg';
 import add from '../../../assets/addIntentIcon.svg';
 import CreateIntentComponentStyle from '../../CreateIntent/Style';
 import noDataIcon from '../../../assets/noDataIcon.svg';
+import OutlinedSpinner from '../../ReusableComponents/Spinner';
 
 const SingleParaphraseModal = ({
   visibility,
@@ -52,29 +52,30 @@ const SingleParaphraseModal = ({
                     }}
                     className={'prompt-input'}
                   />
-                  <img
-                    src={remove}
+                  <div
                     onClick={() => {
                       removeSpecificParaphraseRow(single.phraseId);
                     }}
-                    style={{ cursor: 'pointer' }}
-                  />
+                  >
+                    <img
+                      src={remove}
+                      style={{ cursor: 'pointer' }}
+                      alt="remove"
+                    />
+                  </div>
                 </Col>
               </Row>
             </CreateIntentComponentStyle>,
           );
         });
       return div;
-    } else {
-      return (
-        <CreateIntentComponentStyle>
-          <div className="no-data-content">
-            <img src={noDataIcon} />
-            <div className={'mb-3'}>No Paraphrase</div>
-          </div>
-        </CreateIntentComponentStyle>
-      );
     }
+    <CreateIntentComponentStyle>
+      <div className="no-data-content">
+        <img src={noDataIcon} alt="nodata" />
+        <div className={'mb-3'}>No Paraphrase</div>
+      </div>
+    </CreateIntentComponentStyle>;
   };
 
   const saveParaphrase = () => {
@@ -120,13 +121,7 @@ const SingleParaphraseModal = ({
           {loadingParaphrase ? (
             <div className={'message-loader'}>
               <div style={{ margin: '8px 30px' }}>
-                <CircularProgress
-                  style={{
-                    color: '#bebebe',
-                    width: 24,
-                    height: 24,
-                  }}
-                />
+                <OutlinedSpinner />
               </div>
               <div>Loading data...</div>
             </div>
@@ -147,7 +142,11 @@ const SingleParaphraseModal = ({
             addSpecificParaphraseRow();
           }}
         >
-          <img src={add} style={{ marginRight: '5px', marginBottom: '2px' }} />
+          <img
+            src={add}
+            style={{ marginRight: '5px', marginBottom: '2px' }}
+            alt="add"
+          />
           Add Paraphrase
         </div>
         <CustomButton

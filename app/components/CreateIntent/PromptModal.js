@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Modal, Row } from 'antd';
-import CustomButton from '../Button/Button';
+import CustomButton from '../ReusableComponents/Button/Button';
 import close from '../../assets/close.svg';
 import remove from '../../assets/intentRemove.svg';
 import add from '../../assets/addIntentIcon.svg';

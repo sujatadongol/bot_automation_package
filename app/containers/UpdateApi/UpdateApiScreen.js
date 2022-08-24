@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row, Select, Tooltip } from 'antd';
-import { CircularProgress } from '@material-ui/core';
-import DivWrapper from '../../components/DivWrapper/DivWrapper';
+import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
 import CreateApiStyle from '../CreateApi/Style';
 import Headers from '../../components/ApiComponent/Headers';
 import Parameters from '../../components/ApiComponent/Parameters';
-import CustomButton from '../../components/Button/Button';
-import SnackBar from '../../components/Snackbar';
+import CustomButton from '../../components/ReusableComponents/Button/Button';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
 import history from '../../utils/history';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../Navbar/helper';
 import { ValidURL } from '../../utils/helper';
 import invalidIcon from '../../assets/not_verified.svg';
 import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
+import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
 
 const UpdateApiScreen = ({
   match,
@@ -57,11 +57,10 @@ const UpdateApiScreen = ({
     [],
   );
 
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      history.push('/auto/api');
-    }
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    history.push('/auto/api');
   }
+
   const disableValue =
     apiData.title === '' || apiData.url === '' || apiData.method === '';
 
@@ -82,7 +81,7 @@ const UpdateApiScreen = ({
       <DivWrapper style={{ padding: '10px 20px', marginTop: '15px' }}>
         {loading ? (
           <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-            <CircularProgress style={{ color: '#376AF5' }} />
+            <OutlinedSpinner />
           </div>
         ) : null}
         <CreateApiStyle>
@@ -130,6 +129,7 @@ const UpdateApiScreen = ({
                   marginLeft: '6px',
                   marginTop: '30px',
                 }}
+                alt="invalid"
               />
             </Tooltip>
             <Col span={13}>

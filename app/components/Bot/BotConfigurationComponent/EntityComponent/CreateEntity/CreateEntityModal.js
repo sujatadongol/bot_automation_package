@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Input, Modal, Radio, Row, Select } from 'antd';
 import close from '../../../../../assets/close.svg';
-import CustomButton from '../../../../Button/Button';
+import CustomButton from '../../../../ReusableComponents/Button/Button';
 import SynonymComponent from './SynonymComponent';
 import RegexComponent from './RegexComponent';
 

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { CircularProgress } from '@material-ui/core';
 import { Tooltip } from 'antd';
 import { format } from 'timeago.js';
-import SnackBar from '../../components/Snackbar';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
 import AddCustomRuleModal from '../../components/SettingComponent/AddCustomRuleModal';
-import addIcon from '../../assets/whiteAddIcon.svg';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../Navbar/helper';
-import DivWrapper from '../../components/DivWrapper/DivWrapper';
+import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
 import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
-import TableComponent from '../../components/Table';
+import TableComponent from '../../components/ReusableComponents/Table';
 import CommonIcon from '../../assets/images/common/CommonIcon';
+import { CommonIcons } from '../../assets/CommonIcons';
 import {
   TicketSettingStyle,
   RetrainButton,
@@ -19,7 +18,8 @@ import {
   ActionButton,
 } from './Style';
 import NewTicketModal from '../../components/SettingComponent/NewTicketModal';
-import DeleteModal from '../../components/DeleteComponent/DeleteModal';
+import DeleteModal from '../../components/ReusableComponents/DeleteComponent/DeleteModal';
+import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
 
 const TicketSetting = ({
   match,
@@ -231,7 +231,7 @@ const TicketSetting = ({
 
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       )}
 
@@ -255,7 +255,7 @@ const TicketSetting = ({
                 className="float"
                 onClick={openNewTicketModal}
               >
-                <img src={addIcon} width={16} height={16} alt="add" />
+                <CommonIcons.WhiteAddIcon />
               </div>
             </Tooltip>
           )}
