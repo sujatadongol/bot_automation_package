@@ -10,7 +10,6 @@ import './Style.css';
 import CreateBotModal from '../../../components/Bot/CreateBotModal';
 import ConfirmationModal from '../../../components/ReusableComponents/ModalComponents/ConfirmationModal';
 import { getActiveVersionCreatedAt } from './helper';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import { CommonIcons } from '../../../assets/CommonIcons';
 import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 

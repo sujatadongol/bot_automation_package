@@ -1,6 +1,6 @@
 {
   "name": "@anydone/bot_automation_package",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "main": "dist/index.js",
   "repository": {
