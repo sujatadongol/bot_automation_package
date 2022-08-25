@@ -81,7 +81,7 @@ export const SidebarAccountDiv = styled.div`
 export const LayoutDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   height: calc(100vh - 60px);
   @media (max-width: 990px) {
     width: 100%;

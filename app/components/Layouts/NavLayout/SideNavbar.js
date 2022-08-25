@@ -30,11 +30,11 @@ const SidebarStyle = styled.div`
 
 const SideNavbar = ({ props }) => (
   <LayoutWrapper>
-    <SidebarStyle>
+    {/* <SidebarStyle>
       <Sider breakpoint="lg" collapsedWidth="0" width="100%" theme="light">
         <SideMenu props={props} />
       </Sider>
-    </SidebarStyle>
+    </SidebarStyle> */}
     <LayoutDiv>
       <Layout className="main-content">
         <Content className="site-layout-background content-wrapper">

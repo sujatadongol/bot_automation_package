@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import add from '../../assets/addIntentIcon.svg';
 import deleteResponse from '../../assets/delete_response.svg';
 import TextResponses from './TextResponses';
 import ConfirmationModal from '../ReusableComponents/ModalComponents/ConfirmationModal';
-import {Tooltip} from "antd";
-import intent from "../../assets/intent.svg";
+import { Tooltip } from 'antd';
+import intent from '../../assets/intent.svg';
 
 const ResponseDetail = ({
   apiList,

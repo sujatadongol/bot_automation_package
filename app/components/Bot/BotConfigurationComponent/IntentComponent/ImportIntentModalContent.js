@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Progress } from 'antd';
 import modalClose from '../../../../assets/new-modal-close.svg';
-import CustomBtn from '../../../Button/Button';
+import CustomBtn from '../../../ReusableComponents/Button/Button';
 import BotConfigurationTabStyle from '../../../../containers/Bot/BotConfigurationTab/Style';
 import history from '../../../../utils/history';
-import { checkIfStrIsValidURL, ValidURL } from '../../../../utils/helper';
+import { checkIfStrIsValidURL } from '../../../../utils/helper';
 
 const ImportIntentModalContent = ({
   defaultLanguage,

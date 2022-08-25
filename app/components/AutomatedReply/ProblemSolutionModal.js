@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'antd';
-import CustomButton from '../Button/Button';
+import CustomButton from '../ReusableComponents/Button/Button';
 import close from '../../assets/close.svg';
 import '../../containers/AutomatedReply/AutomatedReplies/Style.css';
 import Steps from './ResolutionReply/Steps';

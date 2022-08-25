@@ -1,6 +1,6 @@
 import React from 'react';
-import { CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import OutlinedSpinner from './ReusableComponents/Spinner';
 
 const Loader = ({ width, height, position, color }) => {
   return (
@@ -11,15 +11,15 @@ const Loader = ({ width, height, position, color }) => {
         justifyContent: 'center',
         width: '100%',
         height: '100%',
-        position: position,
+        position,
         zIndex: 1,
       }}
     >
-      <CircularProgress
-        style={{
-          color: color ? color : '#376AF5',
-          width: width,
-          height: height,
+      <OutlinedSpinner
+        spinnerStyle={{
+          color: color || '#376AF5',
+          width,
+          height,
         }}
       />
     </div>

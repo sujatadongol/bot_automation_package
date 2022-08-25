@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Row, Tooltip } from 'antd';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import add from '../../assets/addIntentIcon.svg';
 import CreateIntentComponentStyle from '../CreateIntent/Style';
 import CreateFullfilmentModal from './Fulfilment/CreateFulfillmentModal';

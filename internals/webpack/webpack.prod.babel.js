@@ -19,10 +19,19 @@ module.exports = require('./webpack.base.babel')({
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
+    path: path.resolve('dist'),
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
   },
-
+  module: {
+    rules: [
+      {
+        test: /\.js?$/,
+        exclude: /(node_modules)/,
+        use: 'babel-loader',
+      },
+    ],
+  },
   optimization: {
     minimize: true,
     minimizer: [
@@ -117,30 +126,27 @@ module.exports = require('./webpack.base.babel')({
       minRatio: 0.8,
     }),
 
-    // new WebpackPwaManifest({
-    //   name: 'React Boilerplate',
-    //   short_name: 'React BP',
-    //   description: 'My React Boilerplate-based project!',
-    //   background_color: '#fafafa',
-    //   theme_color: '#b1624d',
-    //   inject: true,
-    //   ios: true,
-    //   icons: [
-    //     {
-    //       src: path.resolve('app/images/icon-512x512.png'),
-    //       sizes: [72, 96, 128, 144, 192, 384, 512],
-    //     },
-    //     {
-    //       src: path.resolve('app/images/icon-512x512.png'),
-    //       sizes: [120, 152, 167, 180],
-    //       ios: true,
-    //     },
-    //   ],
-    // }),
-    new Dotenv({
-      path: './.env.prod',
-      safe: true,
+    new WebpackPwaManifest({
+      name: 'React Boilerplate',
+      short_name: 'React BP',
+      description: 'My React Boilerplate-based project!',
+      background_color: '#fafafa',
+      theme_color: '#b1624d',
+      inject: true,
+      ios: true,
+      icons: [
+        {
+          src: path.resolve('app/images/icon-512x512.png'),
+          sizes: [72, 96, 128, 144, 192, 384, 512],
+        },
+        {
+          src: path.resolve('app/images/icon-512x512.png'),
+          sizes: [120, 152, 167, 180],
+          ios: true,
+        },
+      ],
     }),
+
     new HashedModuleIdsPlugin({
       hashFunction: 'sha256',
       hashDigest: 'hex',

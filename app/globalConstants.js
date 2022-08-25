@@ -68,6 +68,11 @@ const APIEndPoints = {
   FETCH_API_BY_ID: `${BASE_API}/thirdparty/api/`,
   UPDATE_API: `${BASE_API}/thirdparty/api/`,
   DELETE_API: `${BASE_API}/thirdparty/api/`,
+  // settings
+  FETCH_ALL_SETTINGS: `${BASE_API}/service-provider/settings`,
+  FETCH_TIME_ZONE: `${BASE_API}/timezones`,
+  FETCH_LANGUAGES: `${BASE_API}/languages`,
+  UPDATE_SETTINGS: `${BASE_API}/service-provider/settings`,
 
   // open services
   FETCH_ORDERS: `${BASE_API}/service/orders`,

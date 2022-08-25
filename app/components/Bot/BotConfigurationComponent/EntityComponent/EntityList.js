@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Tooltip } from 'antd';
-import TableComponent from '../../../Table';
+import Modal from 'components/LogoutModal';
+import TableComponent from '../../../ReusableComponents/Table';
 import edit_icon from '../../../../assets/edit.svg';
 import delete_icon from '../../../../assets/delete.svg';
 import CreateEntityModal from './CreateEntity/CreateEntityModal';
 import { ConvertEnum } from '../../../../utils/helper';
 import UpdateEntityModal from './UpdateEntity/UpdateEntityModal';
-import Modal from 'components/LogoutModal';
-import addIcon from '../../../../assets/whiteAddIcon.svg';
+import { CommonIcons } from '../../../../assets/CommonIcons';
 import BotEntityStyle from './Style';
 
 const EntityList = ({
@@ -208,9 +208,9 @@ const EntityList = ({
   return (
     <div style={{ margin: '0', background: '#fff', padding: '5px' }}>
       <BotEntityStyle>
-        <div className={'entityTab'}>
+        <div className="entityTab">
           <div
-            className={'tabData'}
+            className="tabData"
             style={
               !toggleTab
                 ? {
@@ -227,7 +227,7 @@ const EntityList = ({
             Custom
           </div>
           <div
-            className={'tabData'}
+            className="tabData"
             style={
               toggleTab
                 ? {
@@ -247,14 +247,15 @@ const EntityList = ({
         {toggleTab === false ? (
           <>
             {botPermission && (
-              <Tooltip title={'Create Entity'}>
+              <Tooltip title="Create Entity">
                 <a
                   className="float"
                   onClick={() => {
                     openCreateEntityModal();
                   }}
                 >
-                  <img src={addIcon} width={16} height={16} />
+                  <CommonIcons.WhiteAddIcon />
+                  {/* <img src={addIcon} width={16} height={16} /> */}
                 </a>
               </Tooltip>
             )}
@@ -331,7 +332,7 @@ const EntityList = ({
         removeRegex={removeRegex}
       />
 
-      {/*delete modal*/}
+      {/* delete modal */}
       <Modal
         title={<p style={{ fontSize: '26px', margin: '10px' }}>Confirmation</p>}
         visibility={deleteEntityModal}

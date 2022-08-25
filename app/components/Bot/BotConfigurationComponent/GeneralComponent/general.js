@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Checkbox, Input, Select } from 'antd';
 import GeneralStyle from './Style';
-import CustomButton from '../../../Button/Button';
+import CustomButton from '../../../ReusableComponents/Button/Button';
 import { timeZone } from './timezone';
 import './style.css';
 

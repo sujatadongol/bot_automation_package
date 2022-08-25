@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Row } from 'antd';
-import SnackBar from '../../../components/Snackbar';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
+import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import '../AutomatedReplies/Style.css';
-import DivWrapper from '../../../components/DivWrapper/DivWrapper';
-import CustomButton from '../../../components/Button/Button';
-import CustomCancelButton from '../../../components/Button/CancelButton';
+import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
+import CustomButton from '../../../components/ReusableComponents/Button/Button';
+import CustomCancelButton from '../../../components/ReusableComponents/Button/CancelButton';
 import add from '../../../assets/addIntentIcon.svg';
 import remove from '../../../assets/intentRemove.svg';
 import history from '../../../utils/history';
 import ProblemSolutionModal from '../../../components/AutomatedReply/ProblemSolutionModal';
-import { CircularProgress } from '@material-ui/core';
 import { isProblemSolutionsAdded } from './helper';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
+import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const ResolutionReply = ({
   match,
@@ -78,12 +75,10 @@ const ResolutionReply = ({
     return () => clearResolutionReply();
   }, []);
 
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      clearAutomatedReplies();
-      history.push('/automated/replies');
-      reloadContainerFunc();
-    }
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    clearAutomatedReplies();
+    history.push('/automated/replies');
+    reloadContainerFunc();
   }
 
   const openMatchingTextData = () => {
@@ -137,15 +132,9 @@ const ResolutionReply = ({
     <>
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner style={{ color: '#376AF5' }} />
         </div>
       )}
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
       <DivWrapper
         style={{
           padding: 0,
@@ -176,6 +165,7 @@ const ResolutionReply = ({
         {openMatchingTextData()}
         <div>
           <button
+            type="button"
             className="add-button"
             onClick={() => {
               addProblemDefinition();

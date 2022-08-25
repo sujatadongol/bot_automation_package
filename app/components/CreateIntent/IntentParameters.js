@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Checkbox, Col, Popover, Row, Select, Tooltip } from 'antd';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import add from '../../assets/addIntentIcon.svg';
 import upload_icon from '../../assets/intentIcon.svg';
 import remove from '../../assets/intentRemove.svg';
@@ -112,6 +112,7 @@ const IntentParameters = ({
                       <img
                         style={{ maxWidth: 18, maxHeight: 18 }}
                         src={upload_icon}
+                        alt="upload"
                       />
                     ) : (
                       <Popover
@@ -156,6 +157,7 @@ const IntentParameters = ({
                         <img
                           style={{ maxWidth: 18, maxHeight: 18 }}
                           src={single.value.iconUrl}
+                          alt="img"
                         />
                       </Popover>
                     )}
@@ -183,6 +185,7 @@ const IntentParameters = ({
                       width={14}
                       height={14}
                       style={{ marginRight: '5px' }}
+                      alt="img"
                     />
                   </Tooltip>
                   <input
@@ -217,20 +220,18 @@ const IntentParameters = ({
                     showSearch
                     showArrow={false}
                     value={
-                      single.value.botEntity === null ? (
-                        <span
-                          style={{
-                            color: 'rgb(198, 198, 198)',
-                            cursor: 'initial',
-                          }}
-                        >
-                          Entity
-                        </span>
-                      ) : (
-                        <span style={{ background: '#FFF1C7' }}>
-                          @{single.value.botEntity.entityName}
-                        </span>
-                      )
+                      single.value.botEntity === null
+                        ? // <span
+                          //   style={{
+                          //     color: 'rgb(198, 198, 198)',
+                          //     cursor: 'initial',
+                          //   }}
+                          // >
+                          'Entity'
+                        : // </span>
+                          // <span style={{ background: '#FFF1C7' }}>
+                          ` @${single.value.botEntity.entityName}`
+                      // </span>
                     }
                     dropdownRender={menu => (
                       <div>
@@ -306,7 +307,10 @@ const IntentParameters = ({
                 <Col
                   span={3}
                   className="intent-row gutter-row"
-                  style={{ textAlign: 'center' }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
                 >
                   <Checkbox
                     checked={single.value.required}

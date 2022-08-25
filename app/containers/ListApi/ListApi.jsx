@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'antd';
-import { CircularProgress } from '@material-ui/core';
 import ApiList from '../../components/ApiComponent/ApiList';
-import SnackBar from '../../components/Snackbar';
-import DivWrapper from '../../components/DivWrapper/DivWrapper';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../Navbar/helper';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
+import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
 import ListApiStyle from './styles';
 import { PageSize } from '../../globalConstants';
 import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
-// import SessionDb from '../../localStorage';
 import LocalDb from '../../localStorage';
+import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
 
 const ListApi = ({
   match,
@@ -47,15 +44,9 @@ const ListApi = ({
 
   return (
     <ListApiStyle>
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       ) : null}
       <div className="container-fluid">

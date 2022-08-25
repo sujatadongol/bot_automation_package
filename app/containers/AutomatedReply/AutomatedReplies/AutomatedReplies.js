@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Popover, Row, Switch } from 'antd';
-import { CircularProgress } from '@material-ui/core';
-import SnackBar from '../../../components/Snackbar';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
+import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import './Style.css';
-import DivWrapper from '../../../components/DivWrapper/DivWrapper';
-import TableComponent from '../../../components/Table';
+import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
+import TableComponent from '../../../components/ReusableComponents/Table';
 import history from '../../../utils/history';
 import LocalDb from '../../../localStorage';
 import { CommonIcons } from '../../../assets/CommonIcons';
-import addIcon from '../../../assets/whiteAddIcon.svg';
 import ConfirmationModal from '../../../components/ReusableComponents/ModalComponents/ConfirmationModal';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import { IconWrapper } from './style';
+import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const AutomatedReplies = ({
   loading,
@@ -45,11 +41,9 @@ const AutomatedReplies = ({
     }
   }, []);
 
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      fetchAutomatedReplies();
-      reloadContainerFunc();
-    }
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    fetchAutomatedReplies();
+    reloadContainerFunc();
   }
 
   const columns = [
@@ -157,16 +151,9 @@ const AutomatedReplies = ({
     <>
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       )}
-
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
 
       <DivWrapper style={{ marginTop: '10px' }}>
         <TableComponent
@@ -209,7 +196,7 @@ const AutomatedReplies = ({
           {LocalDb.getPermissionForBot() && (
             <Popover content={popoverContent} placement="topRight">
               <a className="float">
-                <img src={addIcon} width={16} height={16} alt="add" />
+                <CommonIcons.WhiteAddIcon />
               </a>
             </Popover>
           )}

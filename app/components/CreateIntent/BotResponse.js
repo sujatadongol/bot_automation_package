@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import { Tooltip } from 'antd';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import intent from '../../assets/intent.svg';
 import add from '../../assets/addIntentIcon.svg';
 import TextResponses from './TextResponses';
 import deleteResponse from '../../assets/delete_response.svg';
 import ConfirmationModal from '../ReusableComponents/ModalComponents/ConfirmationModal';
-import { Tooltip } from 'antd';
+import CommonIcon from '../../assets/CommonIcons';
 
 const BotResponses = ({
   apiList,
@@ -74,7 +75,7 @@ const BotResponses = ({
         <div className="intent-value-header" style={{ borderBottom: 'none' }}>
           <Tooltip title="Text responses that bot delivers to the user">
             Responses
-            <img src={intent} className={'title-icon'} />
+            <img src={intent} className="title-icon" />
           </Tooltip>
         </div>
         {openResponseData()}
@@ -84,7 +85,9 @@ const BotResponses = ({
             className="add-button"
             onClick={handleChangeToAddTextResponse}
             style={{ paddingTop: 0 }}
+            type="button"
           >
+            {/* <CommonIcon /> */}
             <img src={add} style={{ marginRight: '5px' }} /> Add Response
           </button>
         </div>

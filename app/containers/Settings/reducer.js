@@ -7,7 +7,7 @@ import produce from 'immer';
 import {
   showErrorNotification,
   showSuccessNotification,
-} from '../../components/SnackbarComponent';
+} from '../../components/ReusableComponents/SnackbarComponent';
 import { SETTINGS_ACTION } from './constants';
 
 export const initialState = {

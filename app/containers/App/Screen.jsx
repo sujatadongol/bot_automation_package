@@ -35,7 +35,6 @@ const Screen = ({
     fetchAllSettings();
     fetchServiceInNavbar();
     fetchProjectInNavbar();
-    // fetchGroup();
   }, []);
 
   return (

@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { Modal } from 'antd';
 import PropTypes from 'prop-types';
-import CustomCancelButton from '../../Button/CancelButton';
-import CustomButton from '../../Button/Button';
+import CustomCancelButton from '../../ReusableComponents/Button/CancelButton';
+import CustomButton from '../../ReusableComponents/Button/Button';
 import './Style.css';
 
 const ConfirmationModal = ({

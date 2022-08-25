@@ -7,9 +7,9 @@
 import React, { memo } from 'react';
 import { Modal } from 'antd';
 import PropTypes from 'prop-types';
-import { useStyles } from './style';
-import CustomCancelButton from '../Button/CancelButton';
-import CustomButton from '../Button/Button';
+import { Content, Title, Text } from './style';
+import CustomCancelButton from '../ReusableComponents/Button/CancelButton';
+import CustomButton from '../ReusableComponents/Button/Button';
 // import styled from 'styled-components';
 
 const LogoutModal = ({
@@ -22,12 +22,10 @@ const LogoutModal = ({
   onClick,
   width,
 }) => {
-  const classes = useStyles();
   return (
     <Modal
       icon
-      className={classes.content}
-      title={title ? <span className={classes.title}> {title} </span> : null}
+      title={title ? <Title> {title} </Title> : null}
       centered
       visible={visibility}
       footer={null}
@@ -36,7 +34,7 @@ const LogoutModal = ({
       width={width}
       maskClosable={false}
     >
-      <span className={classes.text}> {content} </span>
+      <Text> {content} </Text>
       {actionLabel ? (
         <div style={{ display: 'flex', gap: '5%', marginTop: '3%' }}>
           <div style={{ width: '45%' }}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Checkbox, Col, Popover, Row, Select, Tooltip } from 'antd';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import add from '../../assets/addIntentIcon.svg';
 import upload_icon from '../../assets/intentIcon.svg';
 import remove from '../../assets/intentRemove.svg';
@@ -228,7 +228,7 @@ const IntentParameterDetail = ({
                         : // </span>
                           // <span style={{ background: '#FFF1C7' }}>
                           ` @${single.value.botEntity.entityName}`
-                          // </span>
+                      // </span>
                     }
                     dropdownRender={menu => (
                       <div>

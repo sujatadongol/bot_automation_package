@@ -1,12 +1,12 @@
 import React from 'react';
-import { CircularProgress } from '@material-ui/core';
 import { Modal } from 'antd';
-import CustomButton from '../../Button/Button';
+import CustomButton from '../../ReusableComponents/Button/Button';
 import close from '../../../assets/close.svg';
 import remove from '../../../assets/delete.svg';
 import add from '../../../assets/addIntentIcon.svg';
 import CreateIntentComponentStyle from '../../CreateIntent/Style';
 import noDataIcon from '../../../assets/noDataIcon.svg';
+import OutlinedSpinner from '../../ReusableComponents/Spinner';
 
 const AllParaphraseModal = ({
   visibility,
@@ -60,32 +60,29 @@ const AllParaphraseModal = ({
         });
 
       return div;
-    } else {
-      return (
-        <CreateIntentComponentStyle>
-          <div
-            className="no-data-content"
-            style={{
-              minHeight: '120px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: '16px',
-            }}
-          >
-            {optimizationSuccess ? (
-              'Already Optimized'
-            ) : (
-              <div className={'d-flex-column'}>
-                {' '}
-                <img src={noDataIcon} />
-                <div>No Data</div>
-              </div>
-            )}
-          </div>
-        </CreateIntentComponentStyle>
-      );
     }
+    <CreateIntentComponentStyle>
+      <div
+        className="no-data-content"
+        style={{
+          minHeight: '120px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '16px',
+        }}
+      >
+        {optimizationSuccess ? (
+          'Already Optimized'
+        ) : (
+          <div className={'d-flex-column'}>
+            {' '}
+            <img src={noDataIcon} />
+            <div>No Data</div>
+          </div>
+        )}
+      </div>
+    </CreateIntentComponentStyle>;
   };
 
   const saveParaphrase = () => {
@@ -143,13 +140,7 @@ const AllParaphraseModal = ({
               }}
             >
               <div style={{ margin: '8px 100px' }}>
-                <CircularProgress
-                  style={{
-                    color: '#bebebe',
-                    width: 24,
-                    height: 24,
-                  }}
-                />
+                <OutlinedSpinner />
               </div>
               <div>Optimizing intents. Might take some time.</div>
               <div className={'text-center'}>Please wait ...</div>
@@ -157,7 +148,8 @@ const AllParaphraseModal = ({
           ) : (
             <>
               {openParaphraseData()}
-              <div hidden={!(paraphraseList && paraphraseList.length > 0)}
+              <div
+                hidden={!(paraphraseList && paraphraseList.length > 0)}
                 className="single-paraphrase d-flex p-1 "
                 style={{
                   color: '#376AF5',
@@ -166,7 +158,7 @@ const AllParaphraseModal = ({
                 }}
                 onClick={() => addParaphraseRow()}
               >
-                <img src={add} style={{ margin: '0 5px 2px 5px' }} />
+                <img src={add} style={{ margin: '0 5px 2px 5px' }} alt="add" />
                 Add Paraphrase
               </div>
             </>

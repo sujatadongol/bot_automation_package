@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Input, Modal, Row } from 'antd';
 import styled from 'styled-components';
-import CustomButton from '../Button/Button';
+import CustomButton from '../ReusableComponents/Button/Button';
 import remove from '../../assets/intentRemove.svg';
 import addIcon from '../../assets/addIntentIcon.svg';
 import SettingComponentStyle from './Style';

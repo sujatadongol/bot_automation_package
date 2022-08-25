@@ -2,9 +2,8 @@ import { Tooltip } from 'antd';
 import Modal from 'components/LogoutModal';
 import React, { useState } from 'react';
 import { CommonIcons } from '../../assets/CommonIcons';
-import addIcon from '../../assets/whiteAddIcon.svg';
 import history from '../../utils/history';
-import TableComponent from '../Table';
+import TableComponent from '../ReusableComponents/Table';
 import { IconWrapper } from './style';
 
 const ApiList = ({
@@ -109,7 +108,7 @@ const ApiList = ({
                   history.push(`/service/api/create/${serviceId}`);
                 }}
               >
-                <img src={addIcon} width={16} height={16} alt="add" />
+                <CommonIcons.WhiteAddIcon />
               </div>
             </Tooltip>
           )}

@@ -144,7 +144,7 @@ const BotConfigurationTabStyle = styled.span`
     text-align: center;
     background: #ffffff;
     box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.06);
-    margin-top: -110px;
+    margin-top: -50px;
     position: fixed;
     right: 0;
     height: calc(100vh - 56px);

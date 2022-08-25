@@ -1,9 +1,12 @@
-import React,{useState,useEffect} from 'react';
-import { NavbarWrapperStyle } from './style';
-import TopNavbar from '../../components/Layouts/NavLayout/TopNavbar';
-import SideNavbar from '../../components/Layouts/NavLayout/SideNavbar';
-import { clearClientObj, clientObj, SetupMqttConnection } from '../../utils/Mqtt';
+import React, { useState, useEffect } from 'react';
 import { Detector } from 'react-detect-offline';
+import { NavbarWrapperStyle } from './style';
+import SideNavbar from '../../components/Layouts/NavLayout/SideNavbar';
+import {
+  clearClientObj,
+  clientObj,
+  SetupMqttConnection,
+} from '../../utils/Mqtt';
 import LocalDb from '../../localStorage';
 
 const Navbar = props => {
@@ -38,7 +41,6 @@ const Navbar = props => {
     }
   }, [isOffline]);
 
-  console.log('dddddd',{props})
   return (
     <NavbarWrapperStyle>
       <Detector
@@ -52,7 +54,6 @@ const Navbar = props => {
           return null;
         }}
       />
-      <TopNavbar />
       <SideNavbar props={props} />
     </NavbarWrapperStyle>
   );

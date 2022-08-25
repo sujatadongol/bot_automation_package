@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Mention, MentionsInput } from 'react-mentions';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import remove from '../../assets/intentRemove.svg';
 import CreateIntentComponentStyle from './Style';
 import TrainingPhraseIntentParam from './TrainingPhraseIntentParam';
@@ -114,7 +114,7 @@ const TrainingPhase = ({
     const div = [];
     // Outer loop to create parent
     trainingPhase &&
-      trainingPhase.map((singlePhrase) =>
+      trainingPhase.map(singlePhrase =>
         div.push(
           <>
             <div className="training-phase-input">
@@ -344,7 +344,7 @@ const TrainingPhase = ({
         <div className="intent-value-header">
           Training Phrases
           <Tooltip title="Possible phrases that detect the intent">
-            <img src={intent} className={'title-icon'} alt='intent'/>
+            <img src={intent} className={'title-icon'} alt="intent" />
           </Tooltip>
         </div>
         {openTrainingPhaseData()}

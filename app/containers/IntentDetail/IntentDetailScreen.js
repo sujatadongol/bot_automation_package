@@ -1,21 +1,19 @@
 import React, { useEffect } from 'react';
-import { CircularProgress } from '@material-ui/core';
 import TryOut from 'containers/TryOut/Loadable';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import DivWrapper from '../../components/DivWrapper/DivWrapper';
-import CustomButton from '../../components/Button/Button';
-import SnackBar from '../../components/Snackbar';
+import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
+import CustomButton from '../../components/ReusableComponents/Button/Button';
+import SnackBar from '../../components/ReusableComponents/Snackbar';
 import CreateIntentStyle from '../CreateIntentPage/Style';
 import TrainingPhaseDetail from '../../components/IntentDetail/TrainingPhaseDetail';
 import IntentParameterDetail from '../../components/IntentDetail/IntentParameterDetail';
 import ResponseDetail from '../../components/IntentDetail/ResponseDetail';
 import { ValidateIntent } from '../CreateIntentPage/helper';
 import Fulfilment from '../../components/IntentDetail/FulfilmentList';
-import Breadcrumbs from '../../components/Breadcrumbs';
 import AllParaphraseModal from '../../components/IntentDetail/ParaphraseComponent/GetAllParaphraseModal';
 import Action from '../../components/IntentDetail/Action/ActionField';
 import history from '../../utils/history';
-import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
+import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
+import { CommonIcons } from '../../assets/CommonIcons';
 
 const IntentDetailScreen = ({
   match,
@@ -147,10 +145,8 @@ const IntentDetailScreen = ({
     };
   }, []);
 
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      history.push('/bot');
-    }
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    history.push('/bot');
   }
 
   const disableValue = intentName === '';
@@ -171,16 +167,6 @@ const IntentDetailScreen = ({
   return (
     <CreateIntentStyle>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <BreadCrumbsDiv>
-          <Breadcrumbs
-            breadcrumbs={['Home', 'Bot', 'Intent', 'Detail']}
-            breadcrumbsPath={[
-              '/home',
-              '/bot',
-              '/bot/' + botId + '/intent/' + defaultLanguage,
-            ]}
-          />
-        </BreadCrumbsDiv>
         <div
           style={{
             display: 'flex',
@@ -203,7 +189,7 @@ const IntentDetailScreen = ({
 
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <CircularProgress style={{ color: '#376AF5' }} />
+          <OutlinedSpinner />
         </div>
       ) : null}
       <div
@@ -392,7 +378,7 @@ const IntentDetailScreen = ({
               openTryOutModal();
             }}
           >
-            <ArrowBackIosIcon style={{ marginLeft: '7px', height: 18 }} />
+            <CommonIcons.ArrowLeft />
             <div className={'try-out-text'}> TRY OUT</div>
           </div>
         </div>

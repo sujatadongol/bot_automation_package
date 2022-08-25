@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from 'antd';
 import close from '../../assets/close.svg';
 import CreateIntentComponentStyle from '../CreateIntent/Style';
-import { CircularProgress } from '@material-ui/core';
+import OutlinedSpinner from '../ReusableComponents/Spinner';
 import { UnescapeHtml } from '../../utils/helper';
 
 const MisleadingIntentModal = ({
@@ -25,7 +25,7 @@ const MisleadingIntentModal = ({
                   {singleIntent.trainingPhrases &&
                     singleIntent.trainingPhrases.map(single => (
                       <div className="single-paraphrase d-flex p-1">
-                        <div className={'paraphrase-input'}>
+                        <div className="paraphrase-input">
                           {single.text && UnescapeHtml(single.text)}
                         </div>
                       </div>
@@ -36,24 +36,23 @@ const MisleadingIntentModal = ({
           );
         });
       return div;
-    } else {
-      return (
-        <CreateIntentComponentStyle>
-          <div
-            className="no-data-content"
-            style={{
-              minHeight: '120px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: '16px',
-            }}
-          >
-            No Data
-          </div>
-        </CreateIntentComponentStyle>
-      );
     }
+    return (
+      <CreateIntentComponentStyle>
+        <div
+          className="no-data-content"
+          style={{
+            minHeight: '120px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: '16px',
+          }}
+        >
+          No Data
+        </div>
+      </CreateIntentComponentStyle>
+    );
   };
 
   return (
@@ -88,7 +87,7 @@ const MisleadingIntentModal = ({
           />
         </div>
         <div
-          className={'paraphrase-content-wrapper'}
+          className="paraphrase-content-wrapper"
           style={{ minHeight: '120px' }}
         >
           {loadingParaphrase ? (
@@ -102,13 +101,14 @@ const MisleadingIntentModal = ({
               }}
             >
               <div style={{ margin: '8px 100px' }}>
-                <CircularProgress
+                {/* <CircularProgress
                   style={{
                     color: '#bebebe',
                     width: 24,
                     height: 24,
                   }}
-                />
+                /> */}
+                <OutlinedSpinner />
               </div>
             </div>
           ) : (

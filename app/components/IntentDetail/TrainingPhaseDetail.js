@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Mention, MentionsInput } from 'react-mentions';
-import DivWrapper from '../DivWrapper/DivWrapper';
+import DivWrapper from '../ReusableComponents/DivWrapper/DivWrapper';
 import remove from '../../assets/intentRemove.svg';
 import {
   ChangeInTrainingPhrase,
