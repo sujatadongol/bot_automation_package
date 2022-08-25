@@ -7,13 +7,10 @@ import IntentList from '../../../components/Bot/BotConfigurationComponent/Intent
 import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import General from '../../../components/Bot/BotConfigurationComponent/GeneralComponent/general';
 import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
 import { DateTimeFormatting } from '../../../utils/helper';
 import CustomButton from '../../../components/ReusableComponents/Button/Button';
 import LocalDb from '../../../localStorage';
 import history from '../../../utils/history';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 import { CommonIcons } from '../../../assets/CommonIcons';
 
@@ -218,13 +215,6 @@ const BotConfigurationTab = ({
           flexDirection: 'column',
         }}
       >
-        <BreadCrumbsDiv>
-          <Breadcrumbs
-            breadcrumbs={BreadCrumbValueFunc(match.url)}
-            breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-          />
-        </BreadCrumbsDiv>
-
         <div
           style={{ display: 'flex', justifyContent: 'end', marginTop: '10px' }}
         >

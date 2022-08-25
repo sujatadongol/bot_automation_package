@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { format } from 'timeago.js';
 import { Popover, Switch, Tooltip } from 'antd';
 import SnackBar from '../../../components/ReusableComponents/Snackbar';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
 import TableComponent from '../../../components/ReusableComponents/Table';
 import history from '../../../utils/history';
 import { DateTimeFormatting } from '../../../utils/helper';
@@ -412,13 +410,6 @@ const BotListScreen = ({
         notificationObj.type === 1 &&
         JSON.parse(notificationObj.payload).errorCode === undefined &&
         toggleRetrainLoaderFunc(JSON.parse(notificationObj.payload))}
-
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
 
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">

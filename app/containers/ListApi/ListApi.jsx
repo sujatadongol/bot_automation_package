@@ -3,8 +3,6 @@ import { Col, Row } from 'antd';
 import ApiList from '../../components/ApiComponent/ApiList';
 import SnackBar from '../../components/ReusableComponents/Snackbar';
 import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../Navbar/helper';
 import ListApiStyle from './styles';
 import { PageSize } from '../../globalConstants';
 import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
@@ -46,12 +44,6 @@ const ListApi = ({
 
   return (
     <ListApiStyle>
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
           <OutlinedSpinner />

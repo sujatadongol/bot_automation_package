@@ -3,10 +3,7 @@ import { Tooltip } from 'antd';
 import { format } from 'timeago.js';
 import SnackBar from '../../components/ReusableComponents/Snackbar';
 import AddCustomRuleModal from '../../components/SettingComponent/AddCustomRuleModal';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../Navbar/helper';
 import DivWrapper from '../../components/ReusableComponents/DivWrapper/DivWrapper';
-import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
 import TableComponent from '../../components/ReusableComponents/Table';
 import CommonIcon from '../../assets/images/common/CommonIcon';
 import { CommonIcons } from '../../assets/CommonIcons';
@@ -222,13 +219,6 @@ const TicketSetting = ({
 
   return (
     <TicketSettingStyle>
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
-
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
           <OutlinedSpinner />

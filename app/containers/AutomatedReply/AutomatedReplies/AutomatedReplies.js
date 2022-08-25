@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Popover, Row, Switch } from 'antd';
 import SnackBar from '../../../components/ReusableComponents/Snackbar';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
 import './Style.css';
 import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
 import TableComponent from '../../../components/ReusableComponents/Table';
@@ -10,7 +8,6 @@ import history from '../../../utils/history';
 import LocalDb from '../../../localStorage';
 import { CommonIcons } from '../../../assets/CommonIcons';
 import ConfirmationModal from '../../../components/ReusableComponents/ModalComponents/ConfirmationModal';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import { IconWrapper } from './style';
 import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
@@ -157,13 +154,6 @@ const AutomatedReplies = ({
           <OutlinedSpinner />
         </div>
       )}
-
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
 
       <DivWrapper style={{ marginTop: '10px' }}>
         <TableComponent

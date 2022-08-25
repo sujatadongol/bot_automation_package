@@ -9,11 +9,9 @@ import IntentParameterDetail from '../../components/IntentDetail/IntentParameter
 import ResponseDetail from '../../components/IntentDetail/ResponseDetail';
 import { ValidateIntent } from '../CreateIntentPage/helper';
 import Fulfilment from '../../components/IntentDetail/FulfilmentList';
-import Breadcrumbs from '../../components/Breadcrumbs';
 import AllParaphraseModal from '../../components/IntentDetail/ParaphraseComponent/GetAllParaphraseModal';
 import Action from '../../components/IntentDetail/Action/ActionField';
 import history from '../../utils/history';
-import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
 import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
 import { CommonIcons } from '../../assets/CommonIcons';
 
@@ -147,10 +145,8 @@ const IntentDetailScreen = ({
     };
   }, []);
 
-  {
-    if (reloadContainer && localStorage.getItem('serviceId')) {
-      history.push('/bot');
-    }
+  if (reloadContainer && localStorage.getItem('serviceId')) {
+    history.push('/bot');
   }
 
   const disableValue = intentName === '';
@@ -171,16 +167,6 @@ const IntentDetailScreen = ({
   return (
     <CreateIntentStyle>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <BreadCrumbsDiv>
-          <Breadcrumbs
-            breadcrumbs={['Home', 'Bot', 'Intent', 'Detail']}
-            breadcrumbsPath={[
-              '/home',
-              '/bot',
-              '/bot/' + botId + '/intent/' + defaultLanguage,
-            ]}
-          />
-        </BreadCrumbsDiv>
         <div
           style={{
             display: 'flex',

@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Row, Tooltip } from 'antd';
 import IntentImportStyle from './Style';
 import SnackBar from '../../../components/ReusableComponents/Snackbar';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbValueFunc } from '../../Navbar/helper';
 import CustomButton from '../../../components/ReusableComponents/Button/Button';
 import intentSrc from '../../../assets/intent.svg';
 import remove from '../../../assets/intentRemove.svg';
 import ConfirmationModal from '../../../components/ReusableComponents/ModalComponents/ConfirmationModal';
 import history from '../../../utils/history';
 import IntentNameHelper from '../../../components/IntentNameHelper';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const IntentImportPage = ({
@@ -53,17 +50,6 @@ const IntentImportPage = ({
 
   return (
     <IntentImportStyle>
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={[
-            '/home',
-            '/bot',
-            `/bot/${botId}/intent/${defaultLanguage}`,
-          ]}
-        />
-      </BreadCrumbsDiv>
-
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
           <OutlinedSpinner />

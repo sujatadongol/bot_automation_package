@@ -10,8 +10,6 @@ import SnackBar from '../../components/ReusableComponents/Snackbar';
 import BotResponses from '../../components/CreateIntent/BotResponse';
 import { ValidateIntent } from './helper';
 import Fulfilment from '../../components/CreateIntent/FulfilmentList';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import { BreadCrumbValueFunc } from '../Navbar/helper';
 import Action from '../../components/CreateIntent/Action/ActionField';
 import history from '../../utils/history';
 import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
@@ -126,16 +124,6 @@ const CreateIntentScreen = ({
   const disableValue = intentName === '';
   return (
     <CreateIntentStyle>
-      <Row className="breadcrumbs">
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={[
-            '/home',
-            '/bot',
-            `/bot/${botId}/intent/${language}`,
-          ]}
-        />
-      </Row>
       {loading ? (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
           <OutlinedSpinner />

@@ -7,8 +7,6 @@ import Parameters from '../../components/ApiComponent/Parameters';
 import CustomButton from '../../components/ReusableComponents/Button/Button';
 import SnackBar from '../../components/ReusableComponents/Snackbar';
 import history from '../../utils/history';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../Navbar/helper';
 import { ValidURL } from '../../utils/helper';
 import invalidIcon from '../../assets/not_verified.svg';
 import { BreadCrumbsDiv } from '../../components/Layouts/NavLayout/Style';
@@ -72,12 +70,6 @@ const UpdateApiScreen = ({
   };
   return (
     <>
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
       <DivWrapper style={{ padding: '10px 20px', marginTop: '15px' }}>
         {loading ? (
           <div className={loading ? 'loader' : 'loader hidden'} id="loader">

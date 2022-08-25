@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import SnackBar from '../../../components/ReusableComponents/Snackbar';
 import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
 import history from '../../../utils/history';
 import TableComponent from '../../../components/ReusableComponents/Table';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const ImportList = ({
@@ -114,12 +111,6 @@ const ImportList = ({
 
   return (
     <>
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
           <OutlinedSpinner />

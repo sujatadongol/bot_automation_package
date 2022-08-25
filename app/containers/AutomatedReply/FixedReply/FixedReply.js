@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import SnackBar from '../../../components/ReusableComponents/Snackbar';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { BreadCrumbPathFunc, BreadCrumbValueFunc } from '../../Navbar/helper';
 import '../AutomatedReplies/Style.css';
 import DivWrapper from '../../../components/ReusableComponents/DivWrapper/DivWrapper';
 import CustomButton from '../../../components/ReusableComponents/Button/Button';
@@ -10,7 +8,6 @@ import add from '../../../assets/addIntentIcon.svg';
 import remove from '../../../assets/intentRemove.svg';
 import history from '../../../utils/history';
 import ExpireComponent from '../../../components/AutomatedReply/FixedReply/ExpireComponent';
-import { BreadCrumbsDiv } from '../../../components/Layouts/NavLayout/Style';
 import OutlinedSpinner from '../../../components/ReusableComponents/Spinner';
 
 const FixedReply = ({
@@ -96,12 +93,7 @@ const FixedReply = ({
           <OutlinedSpinner />
         </div>
       )}
-      <BreadCrumbsDiv>
-        <Breadcrumbs
-          breadcrumbs={BreadCrumbValueFunc(match.url)}
-          breadcrumbsPath={BreadCrumbPathFunc(match.url)}
-        />
-      </BreadCrumbsDiv>
+
       <div className="fixed-reply-wrapper">
         <DivWrapper
           style={{
