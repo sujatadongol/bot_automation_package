@@ -214,6 +214,7 @@ export function* getTicketSetting() {
 }
 // fetch auto ticket create list
 export function* fetchAutoTicketList({ page }) {
+  console.loig('in the action page');
   try {
     const res = yield call(
       request,
@@ -225,8 +226,10 @@ export function* fetchAutoTicketList({ page }) {
     );
     if (res.error === true) {
       yield put(fetchAutoTicketCreateListFailure(res.msg));
+      console.log('in the failure case');
     } else {
       yield put(
+        console.log('in the success case'),
         fetchAutoTicketCreateListSuccess(
           res.autoTicketCreateModels,
           res.cursor,
@@ -234,6 +237,7 @@ export function* fetchAutoTicketList({ page }) {
       );
     }
   } catch (error) {
+    console.log('in the catch');
     yield put(fetchAutoTicketCreateListFailure(error.msg));
   }
 }
@@ -339,6 +343,7 @@ export function* retrainAutoTicketCreate({ id }) {
 
 // Individual exports for testing
 export default function* ticketSettingSaga() {
+  console.log('here in the saga of auto ticket create list');
   yield takeLatest(
     ACTION_TYPE_TICKET_SETTING.FETCH_TICKET_SETTING,
     fetchTicketSetting,

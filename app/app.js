@@ -12,13 +12,13 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
+// import { ConnectedRouter } from 'connected-react-router';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
-import { TreeleafStorage } from '@anydone/treeleaf_js_utils';
 import App from 'containers/App';
-import BotList from 'containers/Bot/BotList';
+// import BotList from 'containers/Bot/BotList';
+import AutoTicketCreate from './containers/AutoTicketCreate/index';
 import config from './utils/config';
 
 // Import root app
@@ -56,17 +56,23 @@ const MOUNT_NODE = document.getElementById('app');
 //   'http://localhost:4500',
 //   'http://localhost:3000',
 // ]);
-// const render = messages => {
-//   ReactDOM.render(
-//     <Provider store={store}>
-//       <ConnectedRouter history={history}>
-//         <BotList />
-//       </ConnectedRouter>
-//     </Provider>,
-//     MOUNT_NODE,
-//   );
-// };
-export { BotList };
+const Render = messages => {
+  //   ReactDOM.render(
+  //     <Provider store={store}>
+  //       {/* <ConnectedRouter history={history}> */}
+  //       {/* <BotList /> */}
+  //       <AutoTicketCreate />
+  //       {/* </ConnectedRouter> */}
+  //     </Provider>,
+  //     MOUNT_NODE,
+  //   );
+  return (
+    <Provider store={store}>
+      <AutoTicketCreate />;
+    </Provider>
+  );
+};
+export default Render;
 
 // if (module.hot) {
 //   // Hot reloadable React components and translation json files

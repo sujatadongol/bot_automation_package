@@ -6,7 +6,7 @@ import { createSelector } from 'reselect';
 import LocalDb from '../../localStorage';
 import { makeSelectMqttEvent } from '../Navbar/selectors';
 import { initialState } from './reducer';
-import NotificationProto from '../../protos/notification_pb';
+// import NotificationProto from '../../protos/notification_pb';
 
 const selectGlobal = state => state.global || initialState;
 

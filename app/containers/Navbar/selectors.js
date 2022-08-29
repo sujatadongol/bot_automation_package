@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import LocalDb from '../../localStorage';
 import { initialState } from './reducer';
-import NotificationProto from '../../protos/notification_pb';
+// import NotificationProto from '../../protos/notification_pb';
 
 /**
  * Direct selector to the navbar state domain
@@ -34,25 +34,25 @@ const createMakeSelector = key => () =>
 
 export const makeSelectMqttEvent = createMakeSelector('mqttEvent');
 
-export const makeSelectNotificationObj = () =>
-  createSelector(
-    makeSelectMqttEvent(),
-    mqttEvent => {
-      console.log({ mqttEvent });
-      if (mqttEvent) {
-        if (
-          mqttEvent.topic ===
-          'anydone/notification/' + LocalDb.getUserAccountId()
-        ) {
-          console.log('eeeeeeeeeee');
-          const baseResponse =
-            mqttEvent &&
-            NotificationProto.Notification.deserializeBinary(
-              mqttEvent.payloadBytes,
-            );
-          console.log(mqttEvent.topic, baseResponse && baseResponse.toObject());
-          return baseResponse && baseResponse.toObject();
-        }
-      }
-    },
-  );
+// export const makeSelectNotificationObj = () =>
+//   createSelector(
+//     makeSelectMqttEvent(),
+//     mqttEvent => {
+//       console.log({ mqttEvent });
+//       if (mqttEvent) {
+//         if (
+//           mqttEvent.topic ===
+//           'anydone/notification/' + LocalDb.getUserAccountId()
+//         ) {
+//           console.log('eeeeeeeeeee');
+//           const baseResponse =
+//             mqttEvent &&
+//             NotificationProto.Notification.deserializeBinary(
+//               mqttEvent.payloadBytes,
+//             );
+//           console.log(mqttEvent.topic, baseResponse && baseResponse.toObject());
+//           return baseResponse && baseResponse.toObject();
+//         }
+//       }
+//     },
+//   );

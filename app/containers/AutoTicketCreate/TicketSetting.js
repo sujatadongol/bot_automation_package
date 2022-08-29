@@ -16,7 +16,7 @@ import {
 } from './Style';
 import NewTicketModal from '../../components/SettingComponent/NewTicketModal';
 import DeleteModal from '../../components/ReusableComponents/DeleteComponent/DeleteModal';
-import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
+// import OutlinedSpinner from '../../components/ReusableComponents/Spinner';
 
 const TicketSetting = ({
   match,
@@ -44,9 +44,9 @@ const TicketSetting = ({
   toggleRetrainLoaderInAutoTicketCreate,
 }) => {
   useEffect(() => {
-    if (localStorage.getItem('serviceId') !== '') {
-      fetchAutoTicketCreateList(page);
-    }
+    // if (localStorage.getItem('serviceId') !== '') {
+    fetchAutoTicketCreateList(page);
+    // }
   }, []);
 
   useEffect(
@@ -221,7 +221,7 @@ const TicketSetting = ({
     <TicketSettingStyle>
       {loading && (
         <div className={loading ? 'loader' : 'loader hidden'} id="loader">
-          <OutlinedSpinner />
+          {/* <OutlinedSpinner /> */} loading
         </div>
       )}
 

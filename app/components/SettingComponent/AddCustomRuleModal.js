@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Modal, Row } from 'antd';
-import CustomButton from '../ReusableComponents/Button/Button';
+import CustomButton from '../ReusableComponents/Button/Button.jsx';
 import remove from '../../assets/intentRemove.svg';
 import addIcon from '../../assets/addIntentIcon.svg';
 import SettingComponentStyle from './Style';

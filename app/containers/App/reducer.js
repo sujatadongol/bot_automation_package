@@ -24,9 +24,9 @@ import LocalDb from '../../localStorage';
 // import SessionDb from '../../sessionStorage';
 import tokenHandler from '../../token';
 import { ACTION_TYPE_MQTT } from '../Navbar/constants';
-import RelayProto from '../../protos/rtc_pb';
-import NotificationProto from '../../protos/notification_pb';
-import BotImportProto from '../../protos/bot_housekeeping_pb';
+// import RelayProto from '../../protos/rtc_pb';
+// import NotificationProto from '../../protos/notification_pb';
+// import BotImportProto from '../../protos/bot_housekeeping_pb';
 
 // The initial state of the App
 export const initialState = {
@@ -331,84 +331,84 @@ const appReducer = (state = initialState, action) =>
       case SETTINGS_ACTION.FETCH_LANGUAGES_FAILURE:
         break;
 
-      case ACTION_TYPE_MQTT.ON_MESSAGE_ARRIVED:
-        if (action.message.topic.includes('anydone/notification/')) {
-          const baseResponse = action.message
-            ? NotificationProto.Notification.deserializeBinary(
-                action.message.payloadBytes,
-              )
-            : null;
-          console.log(
-            'notification',
-            action.message &&
-              NotificationProto.Notification.deserializeBinary(
-                action.message.payloadBytes,
-              ).toObject(),
-          );
-          draft.numberOfNotification = state.numberOfNotification + 1;
-          draft.showTrainingCompleteEvent = !(
-            NotificationProto.Notification.deserializeBinary(
-              action.message.payloadBytes,
-            ).toObject() &&
-            action.message &&
-            NotificationProto.Notification.deserializeBinary(
-              action.message.payloadBytes,
-            ).toObject().silent
-          );
-          if (
-            action.message &&
-            NotificationProto.Notification.deserializeBinary(
-              action.message.payloadBytes,
-            ).toObject().type === 1
-          ) {
-            draft.isBotTraining = false;
-          } else if (
-            action.message &&
-            NotificationProto.Notification.deserializeBinary(
-              action.message.payloadBytes,
-            ).toObject().type === 6
-          ) {
-            draft.isCustomRuleTraining = false;
-          }
-          draft.notificationObj =
-            baseResponse !== null && baseResponse.toObject();
-        } else if (action.message.topic.includes('bot/import')) {
-          let importNotificationObj =
-            action.message &&
-            BotImportProto.BotImportResponse.deserializeBinary(
-              action.message.payloadBytes,
-            ) &&
-            BotImportProto.BotImportResponse.deserializeBinary(
-              action.message.payloadBytes,
-            ).toObject();
-          console.log('bot import response', importNotificationObj);
-          if (
-            importNotificationObj &&
-            localStorage.getItem('serviceId') ===
-              importNotificationObj.serviceid
-          )
-            draft.botImportNotification = importNotificationObj;
-        } else {
-          console.log(
-            'base response',
-            action.message &&
-              RelayProto.RelayResponse.deserializeBinary(
-                action.message.payloadBytes,
-              ).toObject(),
-          );
-          const baseResponse = action.message
-            ? RelayProto.RelayResponse.deserializeBinary(
-                action.message.payloadBytes,
-              )
-            : null;
-          draft.arrivedMessage =
-            baseResponse !== null && baseResponse.toObject();
-        }
-        break;
-      case ACTION_TYPE_MQTT.CLEAR_NOTIFICATION_OBJ:
-        draft.notificationObj = undefined;
-        draft.botImportNotification = undefined;
-        break;
+      //   case ACTION_TYPE_MQTT.ON_MESSAGE_ARRIVED:
+      //     if (action.message.topic.includes('anydone/notification/')) {
+      //       const baseResponse = action.message
+      //         ? NotificationProto.Notification.deserializeBinary(
+      //             action.message.payloadBytes,
+      //           )
+      //         : null;
+      //       console.log(
+      //         'notification',
+      //         action.message &&
+      //           NotificationProto.Notification.deserializeBinary(
+      //             action.message.payloadBytes,
+      //           ).toObject(),
+      //       );
+      //       draft.numberOfNotification = state.numberOfNotification + 1;
+      //       draft.showTrainingCompleteEvent = !(
+      //         NotificationProto.Notification.deserializeBinary(
+      //           action.message.payloadBytes,
+      //         ).toObject() &&
+      //         action.message &&
+      //         NotificationProto.Notification.deserializeBinary(
+      //           action.message.payloadBytes,
+      //         ).toObject().silent
+      //       );
+      //       if (
+      //         action.message &&
+      //         NotificationProto.Notification.deserializeBinary(
+      //           action.message.payloadBytes,
+      //         ).toObject().type === 1
+      //       ) {
+      //         draft.isBotTraining = false;
+      //       } else if (
+      //         action.message &&
+      //         NotificationProto.Notification.deserializeBinary(
+      //           action.message.payloadBytes,
+      //         ).toObject().type === 6
+      //       ) {
+      //         draft.isCustomRuleTraining = false;
+      //       }
+      //       draft.notificationObj =
+      //         baseResponse !== null && baseResponse.toObject();
+      //     } else if (action.message.topic.includes('bot/import')) {
+      //       let importNotificationObj =
+      //         action.message &&
+      //         BotImportProto.BotImportResponse.deserializeBinary(
+      //           action.message.payloadBytes,
+      //         ) &&
+      //         BotImportProto.BotImportResponse.deserializeBinary(
+      //           action.message.payloadBytes,
+      //         ).toObject();
+      //       console.log('bot import response', importNotificationObj);
+      //       if (
+      //         importNotificationObj &&
+      //         localStorage.getItem('serviceId') ===
+      //           importNotificationObj.serviceid
+      //       )
+      //         draft.botImportNotification = importNotificationObj;
+      //     } else {
+      //       console.log(
+      //         'base response',
+      //         action.message &&
+      //           RelayProto.RelayResponse.deserializeBinary(
+      //             action.message.payloadBytes,
+      //           ).toObject(),
+      //       );
+      //       const baseResponse = action.message
+      //         ? RelayProto.RelayResponse.deserializeBinary(
+      //             action.message.payloadBytes,
+      //           )
+      //         : null;
+      //       draft.arrivedMessage =
+      //         baseResponse !== null && baseResponse.toObject();
+      //     }
+      //     break;
+      //   case ACTION_TYPE_MQTT.CLEAR_NOTIFICATION_OBJ:
+      //     draft.notificationObj = undefined;
+      //     draft.botImportNotification = undefined;
+      //     break;
     }
   });
 

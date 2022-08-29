@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { Modal } from 'antd';
 import PropTypes from 'prop-types';
-import CustomCancelButton from '../Button/CancelButton';
-import CustomButton from '../Button/Button';
+import CustomCancelButton from '../Button/CancelButton.jsx';
+import CustomButton from '../Button/Button.jsx';
 import { Container, Text, Title, CancelButton } from './Style';
 
 const DeleteModal = ({

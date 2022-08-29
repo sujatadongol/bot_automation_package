@@ -72,7 +72,7 @@ tr.ant-table-row.ant-table-row-level-0 {
   height: 5px !important;
 }
 
-div.ant-table-body{
+div.ant-table-body {
   min-height: calc(100vh - 305px);
 }
 /* Handle on hover */
